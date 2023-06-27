@@ -35,7 +35,7 @@ class LoginController extends Controller
                 ->withSuccess('Signed in');
         }
 
-        return redirect("login")->withSuccess('Estes dados de acesso não são válidos.');
+        return redirect("login")->withError('Estes dados de acesso não são válidos.');
     }
 
     public function dashboard()

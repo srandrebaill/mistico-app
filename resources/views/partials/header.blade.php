@@ -212,7 +212,7 @@
 				</a>
 				<div class="collapse" id="vendas">
 					<ul class="nav flex-column sub-menu">
-						<li class="nav-item"> <a class="nav-link" href="{{ route('venda') }}">Registrar Venda</a></li>
+						<li class="nav-item"> <a class="nav-link" href="{{ route('venda') }}">Minhas Vendas</a></li>
 						<li class="nav-item"> <a class="nav-link" href="{{ route('saque') }}">Solicitar Saque</a></li>
 					</ul>
 				</div>

@@ -23,4 +23,5 @@ class Venda extends Model
     {
         return $this->hasOne(Plano::class, 'id', 'plano_id');
     }
+
 }

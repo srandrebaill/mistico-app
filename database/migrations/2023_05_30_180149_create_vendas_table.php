@@ -17,14 +17,32 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
-
             $table->unsignedBigInteger('plano_id');
-            $table->foreign('plano_id')->references('id')->on('planos');           
+            $table->foreign('plano_id')->references('id')->on('planos');
 
-            $table->enum('situacao', ['Ativo', 'Expirado', 'Utilizado', 'Cancelado'])->nullable();            
-            $table->date('expires_at')->nullable();
+            $table->enum('type_payment', ['credit_card', 'pix'])->default('credit_card');
+            $table->decimal('mercadopago_fee', 8, 2)->nullable();
+            $table->decimal('payment_fee', 8, 2)->nullable();
+            $table->decimal('payment_amount_fee', 8, 2)->nullable();
+            $table->decimal('payment_amount', 8, 2)->nullable();
+            $table->integer('expiration_month')->unsigned()->nullable();
+            $table->integer('expiration_year')->unsigned()->nullable();
+            $table->integer('first_six_digits')->unsigned()->nullable();
+            $table->integer('last_four_digits')->unsigned()->last_four_digits();
+            $table->integer('installments')->unsigned()->nullable();
+            $table->string('status_detail')->nullable();
+            $table->string('payment_method_id')->nullable();
+            $table->string('payment_type_id')->nullable();
+            $table->string('token')->nullable();
+            $table->string('payment_message')->nullable();
+            $table->string('nsu_processadora')->nullable();
+            $table->string('authentication_code')->nullable();
+            $table->string('cardholderName')->nullable();
+            $table->string('identificationNumber')->nullable();
+            $table->enum('identificationType', ['cpf', 'cnpj'])->default('cpf');
+            $table->string('email')->nullable();
+            $table->string('telefone_whatsapp')->nullable();
+            $table->enum('status', ['approved', 'in_process', 'rejected'])->nullable();
 
             $table->softDeletes();
             $table->timestamps();

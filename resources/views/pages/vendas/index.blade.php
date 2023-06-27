@@ -28,48 +28,51 @@
 
 
 <div class="row">
+    <div class="col-12 col-sm-6 col-md-3 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-center">
+                    <i class="mdi mdi-clock icon-lg text-primary d-flex align-items-center"></i>
+                    <div class="d-flex flex-column ms-4">
+                        <div class="d-flex flex-column">
+                            <p class="mb-0">Minhas Vendas</p>
+                            <h4 class="font-weight-bold">R$ 2.399,85</h4>
+                        </div>
+                        <small class="text-muted">12 vendas hoje | 26 de Junho</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
 
+
                 <table class="table table-hover table-striped" id="lista-simples">
                     <thead>
                         <tr>
-                            <!-- <th width="8%">ID</th> -->
-                            <!-- <th>Usuário</th> -->
+                            <th width="8%">ID</th>
                             <th>Cliente</th>
                             <th>Plano</th>
-                            <th>Data de Inclusão</th>
-                            <th>Data de Pagamento</th>
-                            <!-- <th>Link</th> -->
-                            <th>Status</th>
-                            <th>Opções</th>
+                            <th>Pago</th>
+                            <th>Método</th>
+                            <th>Valor</th>
+                            <th>Situação</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($lista as $v)
                         <tr>
-                            <!-- <td><span class="badge badge-dark">{{ $v->id }}</span></td> -->
-                            <!-- <td>{{ ($v->usuario->name) ?? '-' }}</td> -->
-                            <td><span class="badge badge-danger">{{ $v->cliente->nome }}</span></td>
+                            <td>{{ $v->id }}</td>
+                            <td>{{ $v->cardholderName }}</td>
                             <td>{{ $v->plano->titulo }}</td>
-                            <td>{{ date("d/m/Y H:i", strtotime($v->created_at)) }}</td>
-                            <td>-</td>
-                            <!-- <td><span class="badge badge-success">http://www.paygerenciamentos.com.br/pagamento/{{ $v->token }}</span></td> -->
-                            <td><span class="badge badge-info">{{ ($v->situacao) ?? 'Desconhecido' }}</span></td>
-                            <td width="10%">
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Ações
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <!-- <li><a class="dropdown-item" href="#"><span class="mdi mdi-content-copy"></span> Copiar Link</a></li> -->
-                                        <li><a class="dropdown-item" href="{{ route('venda.show', $v->id) }}"><span class="mdi mdi-apps"></span> Detalhes</a></li>
-                                        <li><a class="dropdown-item" href="#"><span class="mdi mdi-delete"></span> Excluir</a></li>
-                                    </ul>
-                                </div>
-
-                            </td>
+                            <td>{{ date("d/m/Y H:i:s", strtotime($v->created_at)) }}</td>
+                            <td>{{ $v->type_payment }}</td>
+                            <td> R$ {{ number_format($v->plano->valor, 2, ',', '.') }}</td>
+                            <td><span class="badge badge-warning">{{ $v->status }}</span></td>
                         </tr>
                         @endforeach
                     </tbody>

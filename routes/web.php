@@ -94,5 +94,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
-Route::get('payment/{token}', [PaymentController::class, 'create'])->name('payment');
-Route::post('payment/proccess', [PaymentController::class, 'proccess'])->name('payment.proccess');
+Route::get('payment/{token}',                                     [PaymentController::class, 'create'])->name('payment');
+Route::post('payment/proccess',                                   [PaymentController::class, 'proccess'])->name('payment.proccess');
+
+Route::post('payment/process/pix',                                [PaymentController::class, 'proccess_pix'])->name('payment.pix');
+Route::post('process/card',                                       [PaymentController::class, 'proccess_card'])->name('payment.card');
+Route::get('payment_success/{token}',                             [PaymentController::class, 'success'])->name('payment.success');
+Route::get('payment_invalid',                                     [PaymentController::class, 'payment_invalid'])->name('payment.error');

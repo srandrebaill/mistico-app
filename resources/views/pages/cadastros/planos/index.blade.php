@@ -47,7 +47,12 @@
                             <td><span class="badge badge-dark">{{ $v->id }}</span></td>
                             <td>{{ $v->titulo }}</td>
                             <td>R$ {{ number_format($v->valor, 2, ',', '.') }}</td>
-                            <td>https://www.paygestao.com.br/payment/{{ $v->token }}</td>
+                            <td>
+                                <!-- <a href="javascript:void(0)" class="payment-url-btn">
+                                    <span class="badge badge-gradient-primary">copiar</span>
+                                </a> -->
+                                <input type="text" class="payment-url form-control" disabled value="{{ url('payment', $v->token) }}">
+                            </td>
                             <td>
                                 <a href="{{ route('plano.editar', $v->id) }}">
                                     <button class="badge badge-info"><i class="mdi mdi-pencil"></i> Editar</button>

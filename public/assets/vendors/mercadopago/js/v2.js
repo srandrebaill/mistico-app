@@ -2999,11 +2999,11 @@
                     return t.get(e);
                 }
                 let K;
-                r(4466);
+                r(847);
                 var Y = new WeakMap(),
                     V = new WeakMap(),
-                    H = new WeakMap(),
                     $ = new WeakMap(),
+                    H = new WeakMap(),
                     G = new WeakMap(),
                     Z = new WeakMap(),
                     X = new WeakMap(),
@@ -3034,8 +3034,8 @@
                         if (
                             (q(this, Y, { writable: !0, value: void 0 }),
                             q(this, V, { writable: !0, value: void 0 }),
-                            q(this, H, { writable: !0, value: void 0 }),
                             q(this, $, { writable: !0, value: void 0 }),
+                            q(this, H, { writable: !0, value: void 0 }),
                             q(this, G, { writable: !0, value: void 0 }),
                             q(this, Z, { writable: !0, value: void 0 }),
                             q(this, X, { writable: !0, value: void 0 }),
@@ -3046,7 +3046,7 @@
                             q(this, re, {
                                 writable: !0,
                                 value: () => {
-                                    const e = F(this, H)?.get("cardNumber"),
+                                    const e = F(this, $)?.get("cardNumber"),
                                         t = e?.element;
                                     F(this, te) ||
                                         (0, o.KS)({
@@ -3062,10 +3062,10 @@
                                     await F(this, J), F(this, de).call(this);
                                     const i = F(
                                         this,
-                                        $
+                                        H
                                     )?.onIdentificationTypesReceived;
                                     try {
-                                        r = F(this, $)?.onFetching?.(
+                                        r = F(this, H)?.onFetching?.(
                                             "identificationTypes"
                                         );
                                         const n = await F(
@@ -3075,7 +3075,7 @@
                                         return (
                                             (t = n && (0, a.S4)(n)),
                                             F(this, Z)?.onReady({
-                                                customCallback: F(this, $)
+                                                customCallback: F(this, H)
                                                     ?.onReady,
                                                 data: {
                                                     event: "onIdentificationTypesReceived",
@@ -3091,7 +3091,7 @@
                                                     t
                                                 );
                                         const r = (0, d.RP)(e);
-                                        F(this, $)?.onError?.(
+                                        F(this, H)?.onError?.(
                                             r,
                                             "onIdentificationTypesReceived"
                                         ),
@@ -3127,10 +3127,10 @@
                                     await F(this, J), F(this, de).call(this);
                                     const i = F(
                                         this,
-                                        $
+                                        H
                                     )?.onPaymentMethodsReceived;
                                     try {
-                                        r = F(this, $)?.onFetching?.(
+                                        r = F(this, H)?.onFetching?.(
                                             "paymentMethods"
                                         );
                                         const [n] = (0, o.hw)([
@@ -3155,7 +3155,7 @@
                                                     t
                                                 );
                                         const r = (0, d.RP)(e);
-                                        F(this, $)?.onError?.(
+                                        F(this, H)?.onError?.(
                                             r,
                                             "onPaymentMethodsReceived"
                                         ),
@@ -3184,9 +3184,9 @@
                                 value: async () => {
                                     let e, t, r;
                                     await F(this, J), F(this, de).call(this);
-                                    const i = F(this, $)?.onIssuersReceived;
+                                    const i = F(this, H)?.onIssuersReceived;
                                     try {
-                                        r = F(this, $)?.onFetching?.("issuers");
+                                        r = F(this, H)?.onFetching?.("issuers");
                                         const [n] = (0, o.hw)([
                                                 "paymentMethods",
                                             ]),
@@ -3206,7 +3206,7 @@
                                                     t
                                                 );
                                         const r = (0, d.RP)(e);
-                                        F(this, $)?.onError?.(
+                                        F(this, H)?.onError?.(
                                             r,
                                             "onIssuersReceived"
                                         ),
@@ -3233,10 +3233,10 @@
                                     await F(this, J), F(this, de).call(this);
                                     const i = F(
                                         this,
-                                        $
+                                        H
                                     )?.onInstallmentsReceived;
                                     try {
-                                        r = F(this, $)?.onFetching?.(
+                                        r = F(this, H)?.onFetching?.(
                                             "installments"
                                         );
                                         const n =
@@ -3270,7 +3270,7 @@
                                                     t
                                                 );
                                         const r = (0, d.RP)(e);
-                                        F(this, $)?.onError?.(
+                                        F(this, H)?.onError?.(
                                             r,
                                             "onInstallmentsReceived"
                                         ),
@@ -3293,12 +3293,12 @@
                             q(this, ce, {
                                 writable: !0,
                                 value: () => {
-                                    F(this, H)?.forEach((e, t) => {
+                                    F(this, $)?.forEach((e, t) => {
                                         let { hidden: r } = e;
                                         F(this, Q).createField(
                                             t,
                                             r,
-                                            F(this, H)
+                                            F(this, $)
                                         );
                                     });
                                 },
@@ -3306,7 +3306,7 @@
                             q(this, fe, {
                                 writable: !0,
                                 value: () => {
-                                    F(this, H)?.forEach((e) => {
+                                    F(this, $)?.forEach((e) => {
                                         let { element: t, listeners: r } = e;
                                         t &&
                                             r &&
@@ -3374,7 +3374,7 @@
                             q(this, le, {
                                 writable: !0,
                                 value: () => {
-                                    F(this, Q).destroyCardForm(F(this, H)),
+                                    F(this, Q).destroyCardForm(F(this, $)),
                                         z(this, Z, void 0);
                                 },
                             }),
@@ -3384,7 +3384,7 @@
                                     s._y.createContext("cardSettings"),
                                         s._y.createContext(
                                             "customCallbacks",
-                                            F(this, $)
+                                            F(this, H)
                                         ),
                                         s._y.createContext("cardFormModules", {
                                             getIdentificationTypes: F(
@@ -3432,7 +3432,7 @@
                                                 ),
                                             e.appendChild(r);
                                     });
-                                    const t = F(this, H)?.get("form")?.id;
+                                    const t = F(this, $)?.get("form")?.id;
                                     document.getElementById(t)?.appendChild(e);
                                 },
                             }),
@@ -3529,10 +3529,10 @@
                         ),
                             z(
                                 this,
-                                H,
+                                $,
                                 s._y.createContext("formMap", (0, a.I)(r))
                             ),
-                            z(this, $, b),
+                            z(this, H, b),
                             z(this, V, new i.Z({ services: new n.Z() })),
                             z(this, te, m),
                             F(this, he).call(this),
@@ -3560,13 +3560,13 @@
                                 z(this, Y, !0),
                                 F(this, re).call(this),
                                 F(this, Z)?.onReady({
-                                    customCallback: F(this, $)?.onReady,
+                                    customCallback: F(this, H)?.onReady,
                                     data: { event: "onMount" },
                                 });
                         } catch (t) {
                             e = t;
                             const r = (0, d.RP)(e);
-                            F(this, $)?.onError?.(r, "onFormMounted"),
+                            F(this, H)?.onError?.(r, "onFormMounted"),
                                 F(this, ye).call(
                                     this,
                                     r,
@@ -3574,7 +3574,7 @@
                                     d.tc.ERROR_TYPE_INTEGRATION
                                 );
                         } finally {
-                            const t = F(this, $)?.onFormMounted;
+                            const t = F(this, H)?.onFormMounted;
                             F(this, Z)?.onFormMounted({
                                 error: e,
                                 customCallback: t,
@@ -3593,14 +3593,14 @@
                                 F(this, le).call(this),
                                 s._y.destroyContexts(),
                                 z(this, G, void 0),
-                                z(this, H, void 0),
+                                z(this, $, void 0),
                                 z(this, V, void 0),
                                 z(this, Y, !1),
                                 (K = void 0);
                         } catch (t) {
                             e = t;
                             const r = (0, d.RP)(e);
-                            F(this, $)?.onError?.(r, "onFormUnmounted"),
+                            F(this, H)?.onError?.(r, "onFormUnmounted"),
                                 F(this, ye).call(
                                     this,
                                     r,
@@ -3608,14 +3608,14 @@
                                     d.tc.ERROR_TYPE_INTEGRATION
                                 );
                         } finally {
-                            F(this, $)?.onFormUnmounted?.(e),
-                                z(this, $, void 0);
+                            F(this, H)?.onFormUnmounted?.(e),
+                                z(this, H, void 0);
                         }
                     }
                     submit() {
                         F(this, de).call(this);
                         try {
-                            const e = F(this, H)?.get("form"),
+                            const e = F(this, $)?.get("form"),
                                 t = e?.element;
                             return t.requestSubmit();
                         } catch (e) {
@@ -3645,7 +3645,7 @@
                                     d.tc.ERROR_TYPE_INTEGRATION
                                 )
                             );
-                        const r = F(this, H)?.get(e);
+                        const r = F(this, $)?.get(e);
                         if (!r)
                             return void console.warn(
                                 `MercadoPago.js - Error updating field ${e}: not found. Ignoring...`
@@ -3654,7 +3654,7 @@
                             placeholder: i = r.placeholder,
                             style: n = r.style,
                         } = t;
-                        F(this, H)?.set(e, { ...r, placeholder: i, style: n }),
+                        F(this, $)?.set(e, { ...r, placeholder: i, style: n }),
                             F(this, Q).update({
                                 field: e,
                                 properties: t,
@@ -3664,9 +3664,9 @@
                     async createCardToken() {
                         let e, t, r;
                         await F(this, J), F(this, de).call(this);
-                        const i = F(this, $)?.onCardTokenReceived;
+                        const i = F(this, H)?.onCardTokenReceived;
                         try {
-                            r = F(this, $)?.onFetching?.("cardToken");
+                            r = F(this, H)?.onFetching?.("cardToken");
                             const n = await F(this, Q)?.getTokenRaw?.();
                             return (
                                 (t = n && (0, a.nj)(n)),
@@ -3688,7 +3688,7 @@
                                     );
                             const r = (0, d.RP)(e);
                             return (
-                                F(this, $)?.onError?.(r, "onCardTokenReceived"),
+                                F(this, H)?.onError?.(r, "onCardTokenReceived"),
                                 F(this, ye).call(
                                     this,
                                     r,
@@ -3944,20 +3944,31 @@
                     o = (e) => {
                         const t = new v(),
                             { locale: r, advancedFraudPrevention: n } = e;
-                        return (
+                        if (
                             r &&
-                                ("string" != typeof r &&
-                                    t.addError({
-                                        ...s.default,
-                                        description:
-                                            "Type of locale must be string. Received " +
-                                            typeof r,
-                                    }),
-                                Object.keys(i.hK).includes(r) ||
-                                    t.addError({
-                                        ...s.default,
-                                        description: `locale ${r}: not supported`,
-                                    })),
+                            ("string" != typeof r &&
+                                t.addError({
+                                    ...s.default,
+                                    description:
+                                        "Type of locale must be string. Received " +
+                                        typeof r,
+                                }),
+                            !Object.keys(i.hK).includes(r))
+                        ) {
+                            let e = Object.keys(i.hK).find((e) =>
+                                e.toLowerCase().startsWith(r)
+                            );
+                            (e = e
+                                ? "es" === r.toLowerCase()
+                                    ? "es-CO"
+                                    : e
+                                : "en-US"),
+                                i.ZP.setLocale(e),
+                                console.warn(
+                                    `The requested language '${r}' is not supported, the server retrieved the fallback language '${e}'.`
+                                );
+                        }
+                        return (
                             n &&
                                 "boolean" != typeof n &&
                                 t.addError({
@@ -4315,7 +4326,8 @@
                                 t,
                                 n._y.getContext("cardSettings"),
                                 i
-                            );
+                            ),
+                            c = ["identificationType", "identificationNumber"];
                         return (
                             o ||
                                 a.addError({
@@ -4326,9 +4338,14 @@
                                 ? (Object.entries(o).forEach((e) => {
                                       let [t, i] = e;
                                       const n = r[t];
-                                      a.addErrors(
-                                          u({ field: t, value: n, config: i })
-                                      );
+                                      (n || !c.includes(t)) &&
+                                          a.addErrors(
+                                              u({
+                                                  field: t,
+                                                  value: n,
+                                                  config: i,
+                                              })
+                                          );
                                   }),
                                   a.getErrors())
                                 : (a.addError({
@@ -4473,7 +4490,7 @@
                 "use strict";
                 r.d(t, { Z: () => f });
                 var i = r(4586),
-                    n = r(4466),
+                    n = r(847),
                     a = r(3800),
                     o = r(542);
                 function s(e, t, r) {
@@ -5314,7 +5331,7 @@
                                     },
                                 }
                             );
-                            return await t.json();
+                            return await t.json(); // aqui
                         })(e);
                     }
                     getIssuers(e) {
@@ -5357,9 +5374,9 @@
                     }
                 };
             },
-            4466: (e, t, r) => {
+            847: (e, t, r) => {
                 "use strict";
-                r.d(t, { y: () => A });
+                r.d(t, { y: () => U });
                 var i = r(8115);
                 class n {
                     send(e, t) {
@@ -5367,10 +5384,33 @@
                     }
                     addContext(e) {}
                 }
-                var a = r(5869),
-                    o = r(4586),
-                    s = r(9001);
-                function c(e, t, r) {
+                class a {
+                    sendErrorMetric(e) {
+                        return Promise.resolve();
+                    }
+                }
+                class o {
+                    static getValue(e) {
+                        return document.cookie
+                            .split(";")
+                            .map((e) => {
+                                const t = e.split("=");
+                                return [t[0], t[1]];
+                            })
+                            .filter((t) => {
+                                let [r, i] = t;
+                                return r === e;
+                            })
+                            .map((e) => {
+                                let [t, r] = e;
+                                return r;
+                            })[0];
+                    }
+                }
+                var s = r(5869),
+                    c = r(4586),
+                    f = r(9001);
+                function d(e, t, r) {
                     !(function (e, t) {
                         if (t.has(e))
                             throw new TypeError(
@@ -5379,7 +5419,7 @@
                     })(e, t),
                         t.set(e, r);
                 }
-                function f(e, t, r) {
+                function u(e, t, r) {
                     return (
                         t in e
                             ? Object.defineProperty(e, t, {
@@ -5392,12 +5432,12 @@
                         e
                     );
                 }
-                function d(e, t) {
+                function h(e, t) {
                     return (function (e, t) {
                         return t.get ? t.get.call(e) : t.value;
-                    })(e, h(e, t, "get"));
+                    })(e, p(e, t, "get"));
                 }
-                function u(e, t, r) {
+                function l(e, t, r) {
                     return (
                         (function (e, t, r) {
                             if (t.set) t.set.call(e, r);
@@ -5408,11 +5448,11 @@
                                     );
                                 t.value = r;
                             }
-                        })(e, h(e, t, "set"), r),
+                        })(e, p(e, t, "set"), r),
                         r
                     );
                 }
-                function h(e, t, r) {
+                function p(e, t, r) {
                     if (!t.has(e))
                         throw new TypeError(
                             "attempted to " +
@@ -5421,51 +5461,32 @@
                         );
                     return t.get(e);
                 }
-                var l = new WeakMap(),
-                    p = new WeakMap(),
-                    b = new WeakMap(),
+                var b = new WeakMap(),
                     m = new WeakMap(),
                     y = new WeakMap(),
                     g = new WeakMap(),
-                    v = new WeakMap();
-                class w {
+                    v = new WeakMap(),
+                    w = new WeakMap(),
+                    _ = new WeakMap();
+                class E {
                     constructor(e, t, r) {
-                        c(this, l, { writable: !0, value: void 0 }),
-                            c(this, p, { writable: !0, value: void 0 }),
-                            c(this, b, { writable: !0, value: void 0 }),
-                            c(this, m, { writable: !0, value: void 0 }),
-                            c(this, y, { writable: !0, value: void 0 }),
-                            c(this, g, { writable: !0, value: void 0 }),
-                            c(this, v, { writable: !0, value: void 0 }),
-                            u(this, l, e),
-                            u(this, p, t),
-                            u(this, b, r),
-                            u(this, m, this.getUidFromCookie()),
-                            u(this, y, i.ZP.getDeviceProfile()),
-                            u(this, g, i.ZP.getPublicKey()),
-                            u(this, v, {});
+                        d(this, b, { writable: !0, value: void 0 }),
+                            d(this, m, { writable: !0, value: void 0 }),
+                            d(this, y, { writable: !0, value: void 0 }),
+                            d(this, g, { writable: !0, value: void 0 }),
+                            d(this, v, { writable: !0, value: void 0 }),
+                            d(this, w, { writable: !0, value: void 0 }),
+                            d(this, _, { writable: !0, value: void 0 }),
+                            l(this, b, e),
+                            l(this, m, t),
+                            l(this, y, r),
+                            l(this, g, this.getUidFromCookie()),
+                            l(this, v, i.ZP.getDeviceProfile()),
+                            l(this, w, i.ZP.getPublicKey()),
+                            l(this, _, {});
                     }
                     getUidFromCookie() {
-                        return (
-                            class {
-                                static getValue(e) {
-                                    return document.cookie
-                                        .split(";")
-                                        .map((e) => {
-                                            const t = e.split("=");
-                                            return [t[0], t[1]];
-                                        })
-                                        .filter((t) => {
-                                            let [r, i] = t;
-                                            return r === e;
-                                        })
-                                        .map((e) => {
-                                            let [t, r] = e;
-                                            return r;
-                                        })[0];
-                                }
-                            }.getValue(w.UID_COOKIE) || (0, o.Z)()
-                        );
+                        return o.getValue(E.UID_COOKIE) || (0, c.Z)();
                     }
                     buildEvent(e, t) {
                         return {
@@ -5473,26 +5494,26 @@
                                 {
                                     path: e,
                                     type: t.type,
-                                    user: { uid: d(this, m) },
-                                    id: (0, o.Z)(),
+                                    user: { uid: h(this, g) },
+                                    id: (0, c.Z)(),
                                     event_data: {
                                         ...t.event_data,
-                                        ...d(this, v),
-                                        ...(d(this, y) && {
-                                            device_profile_id: d(this, y),
+                                        ...h(this, _),
+                                        ...(h(this, v) && {
+                                            device_profile_id: h(this, v),
                                         }),
-                                        public_key: d(this, g),
+                                        public_key: h(this, w),
                                     },
                                     application: {
                                         business: "mercadopago",
-                                        site_id: d(this, b),
-                                        version: d(this, p),
-                                        app_name: d(this, l),
+                                        site_id: h(this, y),
+                                        version: h(this, m),
+                                        app_name: h(this, b),
                                     },
                                     device: {
                                         platform:
                                             "/web/" +
-                                            ((0, s.t)() ? "mobile" : "desktop"),
+                                            ((0, f.t)() ? "mobile" : "desktop"),
                                     },
                                 },
                             ],
@@ -5501,7 +5522,7 @@
                     async postEvent(e) {
                         const t = e.tracks[0];
                         try {
-                            const r = await (0, a.Z)(w.MELIDATA_API_URL, {
+                            const r = await (0, s.Z)(E.MELIDATA_API_URL, {
                                 method: "POST",
                                 body: JSON.stringify(e),
                             });
@@ -5520,7 +5541,7 @@
                     async validateEvent(e) {
                         try {
                             const t = e.tracks[0];
-                            await (0, a.Z)(w.MELIDATA_API_URL_VALIDATE, {
+                            await (0, s.Z)(E.MELIDATA_API_URL_VALIDATE, {
                                 method: "POST",
                                 body: JSON.stringify(t),
                             });
@@ -5532,14 +5553,14 @@
                         }
                     }
                     addContext(e) {
-                        u(this, v, Object.assign(d(this, v), e));
+                        l(this, _, Object.assign(h(this, _), e));
                     }
                     async send(e, t) {
                         const r = this.buildEvent(e, t);
                         this.postEvent(r);
                     }
                 }
-                function _(e, t, r) {
+                function M(e, t, r) {
                     !(function (e, t) {
                         if (t.has(e))
                             throw new TypeError(
@@ -5548,12 +5569,25 @@
                     })(e, t),
                         t.set(e, r);
                 }
-                function E(e, t) {
+                function k(e, t, r) {
+                    return (
+                        t in e
+                            ? Object.defineProperty(e, t, {
+                                  value: r,
+                                  enumerable: !0,
+                                  configurable: !0,
+                                  writable: !0,
+                              })
+                            : (e[t] = r),
+                        e
+                    );
+                }
+                function S(e, t) {
                     return (function (e, t) {
                         return t.get ? t.get.call(e) : t.value;
-                    })(e, k(e, t, "get"));
+                    })(e, A(e, t, "get"));
                 }
-                function M(e, t, r) {
+                function T(e, t, r) {
                     return (
                         (function (e, t, r) {
                             if (t.set) t.set.call(e, r);
@@ -5564,11 +5598,11 @@
                                     );
                                 t.value = r;
                             }
-                        })(e, k(e, t, "set"), r),
+                        })(e, A(e, t, "set"), r),
                         r
                     );
                 }
-                function k(e, t, r) {
+                function A(e, t, r) {
                     if (!t.has(e))
                         throw new TypeError(
                             "attempted to " +
@@ -5577,32 +5611,141 @@
                         );
                     return t.get(e);
                 }
-                f(w, "UID_COOKIE", "_d2id"),
-                    f(
-                        w,
+                u(E, "UID_COOKIE", "_d2id"),
+                    u(
+                        E,
                         "MELIDATA_API_URL",
                         "https://api.mercadolibre.com/tracks"
                     ),
-                    f(
-                        w,
+                    u(
+                        E,
                         "MELIDATA_API_URL_VALIDATE",
                         "https://api.mercadolibre.com/melidata/catalog/validate"
                     );
-                var S = new WeakMap(),
-                    T = new WeakMap();
-                class A {
-                    constructor(e) {
-                        _(this, S, { writable: !0, value: void 0 }),
-                            _(this, T, { writable: !0, value: void 0 });
-                        const { appName: t, siteId: r, version: n } = e;
-                        M(this, S, i.ZP.getTrackingDisabled()),
-                            M(this, T, new w(t, n, r));
+                var R = new WeakMap(),
+                    x = new WeakMap(),
+                    I = new WeakMap(),
+                    C = new WeakMap();
+                class P {
+                    constructor(e, t, r) {
+                        M(this, R, { writable: !0, value: void 0 }),
+                            M(this, x, { writable: !0, value: void 0 }),
+                            M(this, I, { writable: !0, value: void 0 }),
+                            M(this, C, { writable: !0, value: void 0 }),
+                            T(this, R, e),
+                            T(this, x, t),
+                            T(this, I, r),
+                            T(this, C, this.getDeviceUidFromCookie());
                     }
-                    getDispatcherInstance(e) {
-                        return E(this, S) ? new n() : e;
+                    async sendErrorMetric(e) {
+                        const t = this.buildErrorMetric(e);
+                        try {
+                            {
+                                const e = await (0, s.Z)(
+                                    P.FRONTEND_METRICS_API_BASE_URL +
+                                        "/error-metric",
+                                    {
+                                        method: "POST",
+                                        body: JSON.stringify(t),
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                    }
+                                );
+                                if (!e.ok) {
+                                    const t = await e.json();
+                                    throw new Error(`${e.status} - ${t}`);
+                                }
+                            }
+                        } catch (e) {
+                            console.warn(
+                                `[${t.client.name}/${t.client.version}] Could not send error metric ${t.error.name}.`,
+                                e
+                            );
+                        }
+                    }
+                    getDeviceUidFromCookie() {
+                        return o.getValue(P.UID_COOKIE) || (0, c.Z)();
+                    }
+                    buildErrorMetric(e) {
+                        return {
+                            client: { name: S(this, R), version: S(this, x) },
+                            error: e,
+                            browser: {
+                                domain: window.location.origin,
+                                user_agent: navigator.userAgent,
+                            },
+                            device: { uid: S(this, C) },
+                            site_id: S(this, I),
+                        };
+                    }
+                }
+                function O(e, t, r) {
+                    !(function (e, t) {
+                        if (t.has(e))
+                            throw new TypeError(
+                                "Cannot initialize the same private elements twice on an object"
+                            );
+                    })(e, t),
+                        t.set(e, r);
+                }
+                function N(e, t) {
+                    return (function (e, t) {
+                        return t.get ? t.get.call(e) : t.value;
+                    })(e, L(e, t, "get"));
+                }
+                function B(e, t, r) {
+                    return (
+                        (function (e, t, r) {
+                            if (t.set) t.set.call(e, r);
+                            else {
+                                if (!t.writable)
+                                    throw new TypeError(
+                                        "attempted to set read only private field"
+                                    );
+                                t.value = r;
+                            }
+                        })(e, L(e, t, "set"), r),
+                        r
+                    );
+                }
+                function L(e, t, r) {
+                    if (!t.has(e))
+                        throw new TypeError(
+                            "attempted to " +
+                                r +
+                                " private field on non-instance"
+                        );
+                    return t.get(e);
+                }
+                k(P, "UID_COOKIE", "_d2id"),
+                    k(
+                        P,
+                        "FRONTEND_METRICS_API_BASE_URL",
+                        "https://api.mercadopago.com/op-frontend-metrics/v1"
+                    );
+                var D = new WeakMap(),
+                    j = new WeakMap();
+                class U {
+                    constructor(e) {
+                        O(this, D, { writable: !0, value: void 0 }),
+                            O(this, j, { writable: !0, value: void 0 });
+                        const {
+                            appName: t,
+                            clientName: r = "",
+                            siteId: o,
+                            version: s,
+                        } = e;
+                        i.ZP.getTrackingDisabled()
+                            ? (B(this, D, new n()), B(this, j, new a()))
+                            : (B(this, D, new E(t, s, o)),
+                              B(this, j, new P(r, s, o)));
                     }
                     melidata() {
-                        return this.getDispatcherInstance(E(this, T));
+                        return N(this, D);
+                    }
+                    frontendMetrics() {
+                        return N(this, j);
                     }
                 }
             },
@@ -7460,8 +7603,8 @@
                             K = 8191 & W,
                             Y = W >>> 13,
                             V = 0 | s[2],
-                            H = 8191 & V,
-                            $ = V >>> 13,
+                            $ = 8191 & V,
+                            H = V >>> 13,
                             G = 0 | s[3],
                             Z = 8191 & G,
                             X = G >>> 13,
@@ -7526,16 +7669,16 @@
                                 0),
                             (a = (a + Math.imul(b, Y)) | 0);
                         var ge =
-                            (((f + (i = (i + Math.imul(u, H)) | 0)) | 0) +
+                            (((f + (i = (i + Math.imul(u, $)) | 0)) | 0) +
                                 ((8191 &
                                     (n =
-                                        ((n = (n + Math.imul(u, $)) | 0) +
-                                            Math.imul(h, H)) |
+                                        ((n = (n + Math.imul(u, H)) | 0) +
+                                            Math.imul(h, $)) |
                                         0)) <<
                                     13)) |
                             0;
                         (f =
-                            ((((a = (a + Math.imul(h, $)) | 0) + (n >>> 13)) |
+                            ((((a = (a + Math.imul(h, H)) | 0) + (n >>> 13)) |
                                 0) +
                                 (ge >>> 26)) |
                             0),
@@ -7549,12 +7692,12 @@
                                     Math.imul(g, K)) |
                                 0),
                             (a = (a + Math.imul(g, Y)) | 0),
-                            (i = (i + Math.imul(p, H)) | 0),
+                            (i = (i + Math.imul(p, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(p, $)) | 0) +
-                                    Math.imul(b, H)) |
+                                ((n = (n + Math.imul(p, H)) | 0) +
+                                    Math.imul(b, $)) |
                                 0),
-                            (a = (a + Math.imul(b, $)) | 0);
+                            (a = (a + Math.imul(b, H)) | 0);
                         var ve =
                             (((f + (i = (i + Math.imul(u, Z)) | 0)) | 0) +
                                 ((8191 &
@@ -7579,12 +7722,12 @@
                                     Math.imul(_, K)) |
                                 0),
                             (a = (a + Math.imul(_, Y)) | 0),
-                            (i = (i + Math.imul(y, H)) | 0),
+                            (i = (i + Math.imul(y, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(y, $)) | 0) +
-                                    Math.imul(g, H)) |
+                                ((n = (n + Math.imul(y, H)) | 0) +
+                                    Math.imul(g, $)) |
                                 0),
-                            (a = (a + Math.imul(g, $)) | 0),
+                            (a = (a + Math.imul(g, H)) | 0),
                             (i = (i + Math.imul(p, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(p, X)) | 0) +
@@ -7615,12 +7758,12 @@
                                     Math.imul(k, K)) |
                                 0),
                             (a = (a + Math.imul(k, Y)) | 0),
-                            (i = (i + Math.imul(w, H)) | 0),
+                            (i = (i + Math.imul(w, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(w, $)) | 0) +
-                                    Math.imul(_, H)) |
+                                ((n = (n + Math.imul(w, H)) | 0) +
+                                    Math.imul(_, $)) |
                                 0),
-                            (a = (a + Math.imul(_, $)) | 0),
+                            (a = (a + Math.imul(_, H)) | 0),
                             (i = (i + Math.imul(y, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(y, X)) | 0) +
@@ -7657,12 +7800,12 @@
                                     Math.imul(A, K)) |
                                 0),
                             (a = (a + Math.imul(A, Y)) | 0),
-                            (i = (i + Math.imul(M, H)) | 0),
+                            (i = (i + Math.imul(M, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(M, $)) | 0) +
-                                    Math.imul(k, H)) |
+                                ((n = (n + Math.imul(M, H)) | 0) +
+                                    Math.imul(k, $)) |
                                 0),
-                            (a = (a + Math.imul(k, $)) | 0),
+                            (a = (a + Math.imul(k, H)) | 0),
                             (i = (i + Math.imul(w, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(w, X)) | 0) +
@@ -7705,12 +7848,12 @@
                                     Math.imul(I, K)) |
                                 0),
                             (a = (a + Math.imul(I, Y)) | 0),
-                            (i = (i + Math.imul(T, H)) | 0),
+                            (i = (i + Math.imul(T, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(T, $)) | 0) +
-                                    Math.imul(A, H)) |
+                                ((n = (n + Math.imul(T, H)) | 0) +
+                                    Math.imul(A, $)) |
                                 0),
-                            (a = (a + Math.imul(A, $)) | 0),
+                            (a = (a + Math.imul(A, H)) | 0),
                             (i = (i + Math.imul(M, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(M, X)) | 0) +
@@ -7759,12 +7902,12 @@
                                     Math.imul(O, K)) |
                                 0),
                             (a = (a + Math.imul(O, Y)) | 0),
-                            (i = (i + Math.imul(x, H)) | 0),
+                            (i = (i + Math.imul(x, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(x, $)) | 0) +
-                                    Math.imul(I, H)) |
+                                ((n = (n + Math.imul(x, H)) | 0) +
+                                    Math.imul(I, $)) |
                                 0),
-                            (a = (a + Math.imul(I, $)) | 0),
+                            (a = (a + Math.imul(I, H)) | 0),
                             (i = (i + Math.imul(T, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(T, X)) | 0) +
@@ -7819,12 +7962,12 @@
                                     Math.imul(L, K)) |
                                 0),
                             (a = (a + Math.imul(L, Y)) | 0),
-                            (i = (i + Math.imul(P, H)) | 0),
+                            (i = (i + Math.imul(P, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(P, $)) | 0) +
-                                    Math.imul(O, H)) |
+                                ((n = (n + Math.imul(P, H)) | 0) +
+                                    Math.imul(O, $)) |
                                 0),
-                            (a = (a + Math.imul(O, $)) | 0),
+                            (a = (a + Math.imul(O, H)) | 0),
                             (i = (i + Math.imul(x, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(x, X)) | 0) +
@@ -7879,12 +8022,12 @@
                             (i = Math.imul(j, K)),
                             (n = ((n = Math.imul(j, Y)) + Math.imul(U, K)) | 0),
                             (a = Math.imul(U, Y)),
-                            (i = (i + Math.imul(B, H)) | 0),
+                            (i = (i + Math.imul(B, $)) | 0),
                             (n =
-                                ((n = (n + Math.imul(B, $)) | 0) +
-                                    Math.imul(L, H)) |
+                                ((n = (n + Math.imul(B, H)) | 0) +
+                                    Math.imul(L, $)) |
                                 0),
-                            (a = (a + Math.imul(L, $)) | 0),
+                            (a = (a + Math.imul(L, H)) | 0),
                             (i = (i + Math.imul(P, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(P, X)) | 0) +
@@ -7936,9 +8079,9 @@
                                 (Te >>> 26)) |
                             0),
                             (Te &= 67108863),
-                            (i = Math.imul(j, H)),
-                            (n = ((n = Math.imul(j, $)) + Math.imul(U, H)) | 0),
-                            (a = Math.imul(U, $)),
+                            (i = Math.imul(j, $)),
+                            (n = ((n = Math.imul(j, H)) + Math.imul(U, $)) | 0),
+                            (a = Math.imul(U, H)),
                             (i = (i + Math.imul(B, Z)) | 0),
                             (n =
                                 ((n = (n + Math.imul(B, X)) | 0) +
@@ -11126,7 +11269,7 @@
                             case "hex":
                                 return r >>> 1;
                             case "base64":
-                                return H(e).length;
+                                return $(e).length;
                             default:
                                 if (n) return i ? -1 : V(e).length;
                                 (t = ("" + t).toLowerCase()), (n = !0);
@@ -11262,10 +11405,10 @@
                     return o;
                 }
                 function _(e, t, r, i) {
-                    return $(V(t, e.length - r), e, r, i);
+                    return H(V(t, e.length - r), e, r, i);
                 }
                 function E(e, t, r, i) {
-                    return $(
+                    return H(
                         (function (e) {
                             const t = [];
                             for (let r = 0; r < e.length; ++r)
@@ -11278,10 +11421,10 @@
                     );
                 }
                 function M(e, t, r, i) {
-                    return $(H(t), e, r, i);
+                    return H($(t), e, r, i);
                 }
                 function k(e, t, r, i) {
-                    return $(
+                    return H(
                         (function (e, t) {
                             let r, i, n;
                             const a = [];
@@ -12504,7 +12647,7 @@
                     }
                     return a;
                 }
-                function H(e) {
+                function $(e) {
                     return i.toByteArray(
                         (function (e) {
                             if (
@@ -12518,7 +12661,7 @@
                         })(e)
                     );
                 }
-                function $(e, t, r, i) {
+                function H(e, t, r, i) {
                     let n;
                     for (
                         n = 0;
@@ -19396,8 +19539,8 @@
                                 K = this.k[L + 1],
                                 Y = s[L],
                                 V = s[L + 1],
-                                H = b(D, j, U, q, F, z, W, K, Y, V),
-                                $ = m(D, j, U, q, F, z, W, K, Y, V);
+                                $ = b(D, j, U, q, F, z, W, K, Y, V),
+                                H = m(D, j, U, q, F, z, W, K, Y, V);
                             (D = k(c, f)),
                                 (j = S(c, f)),
                                 (U = E(c, 0, l, 0, y)),
@@ -19410,16 +19553,16 @@
                                 (O = C),
                                 (I = R),
                                 (C = x),
-                                (R = u(v, A, H, $)),
-                                (x = h(A, A, H, $)),
+                                (R = u(v, A, $, H)),
+                                (x = h(A, A, $, H)),
                                 (v = y),
                                 (A = g),
                                 (y = l),
                                 (g = p),
                                 (l = c),
                                 (p = f),
-                                (c = u(H, $, G, Z)),
-                                (f = h(H, $, G, Z));
+                                (c = u($, H, G, Z)),
+                                (f = h($, H, G, Z));
                         }
                         d(this.h, 0, c, f),
                             d(this.h, 2, l, p),
@@ -24638,18 +24781,18 @@
                                 K = u(r, w),
                                 Y = u(w, r),
                                 V = h(s, k),
-                                H = h(k, s),
-                                $ = o[F],
+                                $ = h(k, s),
+                                H = o[F],
                                 G = o[F + 1],
                                 Z = f(s, c, g),
                                 X = f(k, S, T),
-                                J = (A + H) | 0,
+                                J = (A + $) | 0,
                                 Q = (v + V + y(J, A)) | 0;
                             Q =
                                 ((Q =
                                     ((Q =
                                         (Q + Z + y((J = (J + X) | 0), X)) | 0) +
-                                        $ +
+                                        H +
                                         y((J = (J + G) | 0), G)) |
                                     0) +
                                     q +
@@ -27063,7 +27206,7 @@
             function Y(e, t) {
                 return (function (e, t) {
                     return t.get ? t.get.call(e) : t.value;
-                })(e, H(e, t, "get"));
+                })(e, $(e, t, "get"));
             }
             function V(e, t, r) {
                 return (
@@ -27076,18 +27219,18 @@
                                 );
                             t.value = r;
                         }
-                    })(e, H(e, t, "set"), r),
+                    })(e, $(e, t, "set"), r),
                     r
                 );
             }
-            function H(e, t, r) {
+            function $(e, t, r) {
                 if (!t.has(e))
                     throw new TypeError(
                         "attempted to " + r + " private field on non-instance"
                     );
                 return t.get(e);
             }
-            var $ = new WeakMap(),
+            var H = new WeakMap(),
                 G = new WeakMap(),
                 Z = new WeakMap(),
                 X = new WeakMap(),
@@ -27110,7 +27253,7 @@
                 pe = new WeakMap();
             class be {
                 constructor(e, t) {
-                    K(this, $, { writable: !0, value: void 0 }),
+                    K(this, H, { writable: !0, value: void 0 }),
                         K(this, G, { writable: !0, value: void 0 }),
                         K(this, Z, { writable: !0, value: void 0 }),
                         K(this, X, { writable: !0, value: void 0 }),
@@ -27151,9 +27294,9 @@
                                     ? e.value.forEach((e) => {
                                           "back_url" === e.id
                                               ? (window.location.href = e.value)
-                                              : Y(this, $).remove();
+                                              : Y(this, H).remove();
                                       })
-                                    : Y(this, $).remove(),
+                                    : Y(this, H).remove(),
                                     V(this, ae, !1);
                             },
                         }),
@@ -27161,7 +27304,7 @@
                             writable: !0,
                             value: (e) => {
                                 Y(this, J) && Y(this, he).call(this, e),
-                                    Y(this, $).remove();
+                                    Y(this, H).remove();
                             },
                         }),
                         K(this, ue, {
@@ -27301,7 +27444,7 @@
                                   )
                                 : (V(
                                       this,
-                                      $,
+                                      H,
                                       new k({
                                           id: Y(this, ie),
                                           src: Y(this, re),
@@ -27313,7 +27456,7 @@
                                   "redirect" !== Y(this, ee)
                                       ? (V(this, ae, !0),
                                         Y(this, ue).call(this),
-                                        Y(this, $).render())
+                                        Y(this, H).render())
                                       : Y(this, re) &&
                                         (window.location.href = Y(this, re)));
                         }),
@@ -27362,7 +27505,7 @@
                 ye,
                 ge,
                 ve = __webpack_require__(3087),
-                we = __webpack_require__(4466),
+                we = __webpack_require__(847),
                 _e = __webpack_require__(5835);
             class Ee {
                 verify(e, t, r) {
@@ -27379,12 +27522,25 @@
                 })(e, t),
                     t.set(e, r);
             }
-            function ke(e, t) {
+            function ke(e, t, r) {
+                return (
+                    t in e
+                        ? Object.defineProperty(e, t, {
+                              value: r,
+                              enumerable: !0,
+                              configurable: !0,
+                              writable: !0,
+                          })
+                        : (e[t] = r),
+                    e
+                );
+            }
+            function Se(e, t) {
                 return (function (e, t) {
                     return t.get ? t.get.call(e) : t.value;
-                })(e, Te(e, t, "get"));
+                })(e, Ae(e, t, "get"));
             }
-            function Se(e, t, r) {
+            function Te(e, t, r) {
                 return (
                     (function (e, t, r) {
                         if (t.set) t.set.call(e, r);
@@ -27395,11 +27551,11 @@
                                 );
                             t.value = r;
                         }
-                    })(e, Te(e, t, "set"), r),
+                    })(e, Ae(e, t, "set"), r),
                     r
                 );
             }
-            function Te(e, t, r) {
+            function Ae(e, t, r) {
                 if (!t.has(e))
                     throw new TypeError(
                         "attempted to " + r + " private field on non-instance"
@@ -27415,8 +27571,7 @@
                           writable: !0,
                       })
                     : (me[ye] = ge);
-            var Ae = new WeakMap(),
-                Re = new WeakMap(),
+            var Re = new WeakMap(),
                 xe = new WeakMap(),
                 Ie = new WeakMap(),
                 Ce = new WeakMap(),
@@ -27432,11 +27587,11 @@
                 Fe = new WeakMap(),
                 ze = new WeakMap(),
                 We = new WeakMap(),
-                Ke = new WeakMap();
-            class Ye {
+                Ke = new WeakMap(),
+                Ye = new WeakMap();
+            class Ve {
                 constructor(e, r) {
-                    Me(this, Ae, { writable: !0, value: void 0 }),
-                        Me(this, Re, { writable: !0, value: void 0 }),
+                    Me(this, Re, { writable: !0, value: void 0 }),
                         Me(this, xe, { writable: !0, value: void 0 }),
                         Me(this, Ie, { writable: !0, value: void 0 }),
                         Me(this, Ce, { writable: !0, value: void 0 }),
@@ -27445,18 +27600,19 @@
                         Me(this, Ne, { writable: !0, value: void 0 }),
                         Me(this, Be, { writable: !0, value: void 0 }),
                         Me(this, Le, { writable: !0, value: void 0 }),
-                        Me(this, De, {
+                        Me(this, De, { writable: !0, value: void 0 }),
+                        Me(this, je, {
                             writable: !0,
                             value: async (e) => {
                                 if (
-                                    (ke(this, Ie) !== e.locale &&
-                                        (Se(this, Ie, e.locale),
-                                        Se(
+                                    (Se(this, Ce) !== e.locale &&
+                                        (Te(this, Ce, e.locale),
+                                        Te(
                                             this,
-                                            Ce,
-                                            await ke(this, Fe).call(this)
+                                            Pe,
+                                            await Se(this, ze).call(this)
                                         )),
-                                    !ke(this, Ce) || !ke(this, Be))
+                                    !Se(this, Pe) || !Se(this, Le))
                                 ) {
                                     const e =
                                         "translations or trackingManager not found";
@@ -27473,33 +27629,34 @@
                                     );
                                 }
                                 return (
-                                    (e.restClient = ke(this, Le)),
-                                    (e.translation = ke(this, Ce)),
-                                    (e.trackingManager = ke(this, Be)),
+                                    (e.restClient = Se(this, De)),
+                                    (e.translation = Se(this, Pe)),
+                                    (e.trackingManager = Se(this, Le)),
                                     e
                                 );
                             },
                         }),
-                        Me(this, je, {
+                        Me(this, Ue, {
                             writable: !0,
                             value: (e, t) => {
                                 const r = {
                                     appName:
-                                        Ye.TRACKING_APP_NAME_PREFIX +
-                                        ke(this, Ae),
+                                        Ve.TRACKING_APP_NAME_PREFIX +
+                                        Se(this, Re),
+                                    clientName: Ve.FRONTEND_METRICS_CLIENT_NAME,
                                     version: e || "",
                                     siteId: t,
                                 };
-                                Se(this, Be, new we.y(r)),
-                                    ke(this, Be)
+                                Te(this, Le, new we.y(r)),
+                                    Se(this, Le)
                                         .melidata()
                                         .addContext({ scope: "prod" });
                             },
                         }),
-                        Me(this, Ue, {
+                        Me(this, qe, {
                             writable: !0,
                             value: async () =>
-                                ke(this, Re)
+                                Se(this, xe)
                                     .getSiteId()
                                     .catch((e) => {
                                         const t = `Could not fetch site ID: ${e.message}`;
@@ -27517,24 +27674,24 @@
                                         );
                                     }),
                         }),
-                        Me(this, qe, {
-                            writable: !0,
-                            value: async (e) =>
-                                ke(this, Re).getBundle(ke(this, Ae), e),
-                        }),
                         Me(this, Fe, {
                             writable: !0,
-                            value: async () =>
-                                ke(this, xe).getTranslation(
-                                    ke(this, Ae),
-                                    ke(this, Ie)
-                                ),
+                            value: async (e) =>
+                                Se(this, xe).getBundle(Se(this, Re), e),
                         }),
                         Me(this, ze, {
                             writable: !0,
-                            value: (e) => e.default.prototype,
+                            value: async () =>
+                                Se(this, Ie).getTranslation(
+                                    Se(this, Re),
+                                    Se(this, Ce)
+                                ),
                         }),
                         Me(this, We, {
+                            writable: !0,
+                            value: (e) => e.default.prototype,
+                        }),
+                        Me(this, Ke, {
                             writable: !0,
                             value: (e) => {
                                 const { code: t, signature: r } = e;
@@ -27553,7 +27710,7 @@
                                     );
                                 }
                                 if (
-                                    !ke(this, Ne).verify(
+                                    !Se(this, Be).verify(
                                         t,
                                         r,
                                         "\n-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuXVHwx2O6Zer4s4pnO7q\n4KNNTzRUIdvSC8y5gcABfSxFcqJBDZvQLYHuADXrCSasZakkunito1E3K6noLpgR\nFfk9lAPN5r0ASl3HHgJkW1RNzimjsW2eovbp63+WYFKQovJ7mtzFoY6sMuFa2eZY\nrHCf/0VC7INW4yOZXPqJI04glosFLbMFIuaPCSiOL9oi1bWb5YPRaVlqDw0/SnsB\n3ITo0yaL9jVZ2PlrHZqCWy3g/Ffy5Jh9nTFI2BUuR4MUqENzZiHQSitTUM/yJjZv\nZ69vBT576Rzz07xoxcmCsNl5QP5WXQ4cFzT4FXzMybP6p3b8hFPueCAm03eNwbPL\nOQIDAQAB\n-----END PUBLIC KEY-----\n"
@@ -27575,31 +27732,31 @@
                                 }
                             },
                         }),
-                        Me(this, Ke, {
+                        Me(this, Ye, {
                             writable: !0,
                             value: (e) =>
-                                ke(this, Pe).getProperty(e, ke(this, ze)),
+                                Se(this, Oe).getProperty(e, Se(this, We)),
                         }),
-                        Se(this, Ae, e),
-                        Se(this, Re, new g()),
-                        Se(this, xe, new _()),
-                        Se(this, Pe, new t.S()),
-                        Se(this, Ne, new Ee()),
-                        Se(this, Ie, r),
-                        Se(this, Le, ve.a8);
+                        Te(this, Re, e),
+                        Te(this, xe, new g()),
+                        Te(this, Ie, new _()),
+                        Te(this, Oe, new t.S()),
+                        Te(this, Be, new Ee()),
+                        Te(this, Ce, r),
+                        Te(this, De, ve.a8);
                 }
                 async init() {
                     try {
-                        const e = await ke(this, Ue).call(this),
+                        const e = await Se(this, qe).call(this),
                             [t, r] = await Promise.all([
-                                ke(this, qe).call(this, e),
-                                ke(this, Fe).call(this),
+                                Se(this, Fe).call(this, e),
+                                Se(this, ze).call(this),
                             ]);
                         return (
-                            Se(this, Ce, r),
-                            ke(this, je).call(this, t.version, e),
-                            ke(this, We).call(this, t),
-                            Se(this, Oe, ke(this, Ke).call(this, t.code)),
+                            Te(this, Pe, r),
+                            Se(this, Ue).call(this, t.version, e),
+                            Se(this, Ke).call(this, t),
+                            Te(this, Ne, Se(this, Ye).call(this, t.code)),
                             Promise.resolve()
                         );
                     } catch (e) {
@@ -27607,7 +27764,7 @@
                     }
                 }
                 async render(e, t) {
-                    if (!ke(this, Oe)) {
+                    if (!Se(this, Ne)) {
                         const e =
                             "Remote component must be initialized before rendering";
                         throw (
@@ -27622,15 +27779,15 @@
                             new Error(e))
                         );
                     }
-                    const r = await ke(this, De).call(this, t);
+                    const r = await Se(this, je).call(this, t);
                     try {
-                        return ke(this, Oe).initialize(e, r);
+                        return Se(this, Ne).initialize(e, r);
                     } catch (e) {
                         return console.error(e), Promise.resolve(null);
                     }
                 }
             }
-            function Ve(e, t, r) {
+            function $e(e, t, r) {
                 !(function (e, t) {
                     if (t.has(e))
                         throw new TypeError(
@@ -27642,9 +27799,9 @@
             function He(e, t) {
                 return (function (e, t) {
                     return t.get ? t.get.call(e) : t.value;
-                })(e, Ge(e, t, "get"));
+                })(e, Ze(e, t, "get"));
             }
-            function $e(e, t, r) {
+            function Ge(e, t, r) {
                 return (
                     (function (e, t, r) {
                         if (t.set) t.set.call(e, r);
@@ -27655,53 +27812,45 @@
                                 );
                             t.value = r;
                         }
-                    })(e, Ge(e, t, "set"), r),
+                    })(e, Ze(e, t, "set"), r),
                     r
                 );
             }
-            function Ge(e, t, r) {
+            function Ze(e, t, r) {
                 if (!t.has(e))
                     throw new TypeError(
                         "attempted to " + r + " private field on non-instance"
                     );
                 return t.get(e);
             }
-            !(function (e, t, r) {
-                t in e
-                    ? Object.defineProperty(e, t, {
-                          value: r,
-                          enumerable: !0,
-                          configurable: !0,
-                          writable: !0,
-                      })
-                    : (e[t] = r);
-            })(Ye, "TRACKING_APP_NAME_PREFIX", "op-checkout-bricks_");
-            var Ze = new WeakMap(),
-                Xe = new WeakMap(),
+            ke(Ve, "TRACKING_APP_NAME_PREFIX", "op-checkout-bricks_"),
+                ke(Ve, "FRONTEND_METRICS_CLIENT_NAME", "checkout_bricks");
+            var Xe = new WeakMap(),
                 Je = new WeakMap(),
                 Qe = new WeakMap(),
                 et = new WeakMap(),
                 tt = new WeakMap(),
-                rt = new WeakMap();
-            class it {
+                rt = new WeakMap(),
+                it = new WeakMap();
+            class nt {
                 constructor(t, r) {
-                    Ve(this, Ze, { writable: !0, value: void 0 }),
-                        Ve(this, Xe, { writable: !0, value: void 0 }),
-                        Ve(this, Je, { writable: !0, value: void 0 }),
-                        Ve(this, Qe, { writable: !0, value: void 0 }),
-                        Ve(this, et, {
+                    $e(this, Xe, { writable: !0, value: void 0 }),
+                        $e(this, Je, { writable: !0, value: void 0 }),
+                        $e(this, Qe, { writable: !0, value: void 0 }),
+                        $e(this, et, { writable: !0, value: void 0 }),
+                        $e(this, tt, {
                             writable: !0,
                             value: (t, r) => {
                                 if (
-                                    ((r.sdkInstance = He(this, Je)),
+                                    ((r.sdkInstance = He(this, Qe)),
                                     (r.publicKey = e.ZP.getPublicKey()),
                                     r.customization?.visual?.style)
                                 ) {
                                     const { style: e } = r.customization.visual,
-                                        t = e.theme || He(this, Qe).theme,
+                                        t = e.theme || He(this, et).theme,
                                         i =
                                             e.customVariables ||
-                                            He(this, Qe).customVariables;
+                                            He(this, et).customVariables;
                                     r.customization.visual.style = {
                                         ...(t && { theme: t }),
                                         ...(i && { customVariables: i }),
@@ -27711,18 +27860,18 @@
                                         ...(r.customization || {}),
                                         visual: {
                                             ...r.customization?.visual,
-                                            style: He(this, Qe),
+                                            style: He(this, et),
                                         },
                                     };
                                 return (
                                     r.locale || (r.locale = e.ZP.getLocale()),
                                     "wallet" === t &&
-                                        (r = He(this, tt).call(this, r)),
+                                        (r = He(this, rt).call(this, r)),
                                     r
                                 );
                             },
                         }),
-                        Ve(this, tt, {
+                        $e(this, rt, {
                             writable: !0,
                             value: (e) => (
                                 (e.checkout = new be(
@@ -27734,56 +27883,56 @@
                                 e
                             ),
                         }),
-                        Ve(this, rt, {
+                        $e(this, it, {
                             writable: !0,
                             value: async (e, t, r) => e.render(t, r),
                         }),
-                        $e(this, Qe, t || {}),
-                        $e(this, Je, r),
-                        $e(this, Xe, {}),
-                        $e(this, Ze, !0);
+                        Ge(this, et, t || {}),
+                        Ge(this, Qe, r),
+                        Ge(this, Je, {}),
+                        Ge(this, Xe, !0);
                 }
                 isInitialized() {
-                    return He(this, Ze);
+                    return He(this, Xe);
                 }
                 async create(e, t, r) {
-                    let i = He(this, Xe)[e];
-                    const n = He(this, et).call(this, e, r);
+                    let i = He(this, Je)[e];
+                    const n = He(this, tt).call(this, e, r);
                     if (!i) {
                         i = (function (e, t) {
-                            return new Ye(e, t);
+                            return new Ve(e, t);
                         })(e, n.locale);
                         try {
                             await i.init();
                         } catch (e) {
                             return console.error(e), Promise.resolve(null);
                         }
-                        He(this, Xe)[e] = i;
+                        He(this, Je)[e] = i;
                     }
-                    return He(this, rt).call(this, i, t, n);
+                    return He(this, it).call(this, i, t, n);
                 }
             }
-            var nt = __webpack_require__(2588),
-                at = __webpack_require__(5196),
-                ot = __webpack_require__(4893);
+            var at = __webpack_require__(2588),
+                ot = __webpack_require__(5196),
+                st = __webpack_require__(4893);
             __webpack_require__(6699);
-            const st = [
+            const ct = [
                     "public_key",
                     "email",
                     "totalAmount",
                     "action",
                     "cancelURL",
                 ],
-                ct = /^(https?):\/\/[^\s$.?#].[^\s]*$/;
-            let ft;
+                ft = /^(https?):\/\/[^\s$.?#].[^\s]*$/;
+            let dt;
             !(function (e) {
                 (e.email = "email"),
                     (e.action = "action"),
                     (e.totalAmount = "total_amount"),
                     (e.cancelURL = "cancel_url"),
                     (e.public_key = "public_key");
-            })(ft || (ft = {}));
-            const dt = [
+            })(dt || (dt = {}));
+            const ut = [
                 {
                     path: "root",
                     name: "type",
@@ -27810,25 +27959,25 @@
                     name: "action",
                     type: "string",
                     required: !0,
-                    pattern: ct,
+                    pattern: ft,
                 },
                 {
                     path: "root",
                     name: "cancelURL",
                     type: "string",
                     required: !0,
-                    pattern: ct,
+                    pattern: ft,
                 },
             ];
-            function ut(e, t, r) {
+            function ht(e, t, r) {
                 if (!t.has(e))
                     throw new TypeError(
                         "attempted to " + r + " private field on non-instance"
                     );
                 return t.get(e);
             }
-            var ht = new WeakMap();
-            class lt {
+            var lt = new WeakMap();
+            class pt {
                 constructor() {
                     let e =
                         arguments.length > 0 && void 0 !== arguments[0]
@@ -27847,7 +27996,7 @@
                                 );
                         })(e, t),
                             t.set(e, r);
-                    })(this, ht, { writable: !0, value: void 0 }),
+                    })(this, lt, { writable: !0, value: void 0 }),
                         e.cancelURL ||
                             (e.cancelURL =
                                 window.top?.location.href ||
@@ -27855,7 +28004,7 @@
                     const t = ((e) => {
                         const t = new i.LL();
                         return (
-                            dt.forEach((r) => {
+                            ut.forEach((r) => {
                                 let {
                                     name: n,
                                     type: a,
@@ -27909,8 +28058,8 @@
                                     );
                                 t.value = r;
                             }
-                        })(e, ut(e, t, "set"), r);
-                    })(this, ht, e);
+                        })(e, ht(e, t, "set"), r);
+                    })(this, lt, e);
                 }
                 open() {
                     i.tc.send({
@@ -27930,10 +28079,10 @@
                                     "https://www.mercadopago.cl/webpay-one-click/init"
                                 ),
                                 r = (e, r) => {
-                                    r && t.searchParams.append(ft[e], r);
+                                    r && t.searchParams.append(dt[e], r);
                                 };
                             return (
-                                st.forEach((t) => {
+                                ct.forEach((t) => {
                                     if (Array.isArray(t)) {
                                         const [i, n] = t;
                                         e[i] && e[i][n] && r(n, e[i][n]);
@@ -27944,17 +28093,17 @@
                         })({
                             public_key: e.ZP.getPublicKey(),
                             ...(this,
-                            (t = ht),
+                            (t = lt),
                             (function (e, t) {
                                 return t.get ? t.get.call(e) : t.value;
-                            })(this, ut(this, t, "get"))),
+                            })(this, ht(this, t, "get"))),
                         })
                     );
                     var t;
                 }
             }
-            var pt = __webpack_require__(7699);
-            function bt(e, t, r) {
+            var bt = __webpack_require__(7699);
+            function mt(e, t, r) {
                 return (
                     t in e
                         ? Object.defineProperty(e, t, {
@@ -27967,12 +28116,15 @@
                     e
                 );
             }
-            class mt {
+            class yt {
                 static isNumericText(e) {
                     return this.NUMERIC_TEXT_REGEX.test(e);
                 }
                 static isRepeatedDigitText(e) {
                     return this.DIGITS_SEQUENCE_REGEX.test(e);
+                }
+                static isAlphaNumeric(e) {
+                    return this.ALPHA_NUMERIC_REGEX.test(e);
                 }
                 static getNextCheckDigitMLB(e) {
                     const t = e.split("").map((e) => Number(e));
@@ -27985,18 +28137,19 @@
                     return n < 2 ? 0 : 11 - n;
                 }
             }
-            bt(mt, "NUMERIC_TEXT_REGEX", /^\d*$/),
-                bt(mt, "DIGITS_SEQUENCE_REGEX", /^(\d)\1*$/);
-            class yt {
+            mt(yt, "NUMERIC_TEXT_REGEX", /^\d*$/),
+                mt(yt, "DIGITS_SEQUENCE_REGEX", /^(\d)\1*$/),
+                mt(yt, "ALPHA_NUMERIC_REGEX", /^[a-zA-Z0-9]+$/);
+            class gt {
                 validate(e) {
-                    if (!mt.isNumericText(e)) return !1;
+                    if (!yt.isNumericText(e)) return !1;
                     if (7 != e.length && 8 != e.length) return !1;
                     const t = parseInt(e[e.length - 1]);
                     let r = 0;
                     for (let t = 0; t < e.length - 1; t++)
                         r +=
                             parseInt(e.substring(t, t + 1)) *
-                            yt.ALGORITHM_FACTORS[t];
+                            gt.ALGORITHM_FACTORS[t];
                     return t === (10 - (r % 10)) % 10;
                 }
             }
@@ -28009,21 +28162,21 @@
                           writable: !0,
                       })
                     : (e[t] = r);
-            })(yt, "ALGORITHM_FACTORS", [2, 9, 8, 7, 6, 3, 4]);
-            class gt {
+            })(gt, "ALGORITHM_FACTORS", [2, 9, 8, 7, 6, 3, 4]);
+            class vt {
                 validate(e) {
-                    if (!mt.isNumericText(e)) return !1;
+                    if (!yt.isNumericText(e)) return !1;
                     if (e.length != this.getDocumentLength()) return !1;
-                    if (mt.isRepeatedDigitText(e)) return !1;
+                    if (yt.isRepeatedDigitText(e)) return !1;
                     const t = this.getDocumentLength() - 1,
-                        r = mt.getNextCheckDigitMLB(e.substring(0, t - 1)),
-                        i = mt.getNextCheckDigitMLB(e.substring(0, t));
+                        r = yt.getNextCheckDigitMLB(e.substring(0, t - 1)),
+                        i = yt.getNextCheckDigitMLB(e.substring(0, t));
                     return e === e.substring(0, t - 1) + r + i;
                 }
             }
-            class vt extends gt {
+            class wt extends vt {
                 getDocumentLength() {
-                    return vt.DOCUMENT_LENGTH;
+                    return wt.DOCUMENT_LENGTH;
                 }
             }
             !(function (e, t, r) {
@@ -28035,13 +28188,13 @@
                           writable: !0,
                       })
                     : (e[t] = 14);
-            })(vt, "DOCUMENT_LENGTH");
-            class wt extends gt {
+            })(wt, "DOCUMENT_LENGTH");
+            class _t extends vt {
                 getDocumentLength() {
-                    return wt.DOCUMENT_LENGTH;
+                    return _t.DOCUMENT_LENGTH;
                 }
             }
-            function _t(e, t, r) {
+            function Et(e, t, r) {
                 !(function (e, t) {
                     if (t.has(e))
                         throw new TypeError(
@@ -28050,12 +28203,12 @@
                 })(e, t),
                     t.set(e, r);
             }
-            function Et(e, t) {
+            function Mt(e, t) {
                 return (function (e, t) {
                     return t.get ? t.get.call(e) : t.value;
-                })(e, kt(e, t, "get"));
+                })(e, St(e, t, "get"));
             }
-            function Mt(e, t, r) {
+            function kt(e, t, r) {
                 return (
                     (function (e, t, r) {
                         if (t.set) t.set.call(e, r);
@@ -28066,11 +28219,11 @@
                                 );
                             t.value = r;
                         }
-                    })(e, kt(e, t, "set"), r),
+                    })(e, St(e, t, "set"), r),
                     r
                 );
             }
-            function kt(e, t, r) {
+            function St(e, t, r) {
                 if (!t.has(e))
                     throw new TypeError(
                         "attempted to " + r + " private field on non-instance"
@@ -28086,25 +28239,78 @@
                           writable: !0,
                       })
                     : (e[t] = 11);
-            })(wt, "DOCUMENT_LENGTH");
-            var St = new WeakMap(),
-                Tt = new WeakMap();
-            class At {
+            })(_t, "DOCUMENT_LENGTH");
+            var Tt = new WeakMap(),
+                At = new WeakMap();
+            class Rt {
                 constructor(e, t) {
-                    _t(this, St, { writable: !0, value: void 0 }),
-                        _t(this, Tt, { writable: !0, value: void 0 }),
-                        Mt(this, St, e),
-                        Mt(this, Tt, t);
+                    Et(this, Tt, { writable: !0, value: void 0 }),
+                        Et(this, At, { writable: !0, value: void 0 }),
+                        kt(this, Tt, e),
+                        kt(this, At, t);
                 }
                 validate(e) {
                     return (
-                        !(!mt.isNumericText(e) || mt.isRepeatedDigitText(e)) &&
-                        e.length >= Et(this, St) &&
-                        e.length <= Et(this, Tt)
+                        !(!yt.isNumericText(e) || yt.isRepeatedDigitText(e)) &&
+                        e.length >= Mt(this, Tt) &&
+                        e.length <= Mt(this, At)
                     );
                 }
             }
-            class Rt {
+            function xt(e, t, r) {
+                !(function (e, t) {
+                    if (t.has(e))
+                        throw new TypeError(
+                            "Cannot initialize the same private elements twice on an object"
+                        );
+                })(e, t),
+                    t.set(e, r);
+            }
+            function It(e, t) {
+                return (function (e, t) {
+                    return t.get ? t.get.call(e) : t.value;
+                })(e, Pt(e, t, "get"));
+            }
+            function Ct(e, t, r) {
+                return (
+                    (function (e, t, r) {
+                        if (t.set) t.set.call(e, r);
+                        else {
+                            if (!t.writable)
+                                throw new TypeError(
+                                    "attempted to set read only private field"
+                                );
+                            t.value = r;
+                        }
+                    })(e, Pt(e, t, "set"), r),
+                    r
+                );
+            }
+            function Pt(e, t, r) {
+                if (!t.has(e))
+                    throw new TypeError(
+                        "attempted to " + r + " private field on non-instance"
+                    );
+                return t.get(e);
+            }
+            var Ot = new WeakMap(),
+                Nt = new WeakMap();
+            class Bt {
+                constructor(e, t) {
+                    xt(this, Ot, { writable: !0, value: void 0 }),
+                        xt(this, Nt, { writable: !0, value: void 0 }),
+                        Ct(this, Ot, e),
+                        Ct(this, Nt, t);
+                }
+                validate(e) {
+                    return (
+                        !(!yt.isAlphaNumeric(e) || yt.isRepeatedDigitText(e)) &&
+                        e.length >= It(this, Ot) &&
+                        e.length <= It(this, Nt)
+                    );
+                }
+            }
+            class Lt {
                 validate(e) {
                     const t = e.replace(".", "").replace("-", ""),
                         r = t.slice(0, -1);
@@ -28123,7 +28329,17 @@
                     );
                 }
             }
-            function xt(e, t, r) {
+            const Dt = (e) => {
+                bt.Z.sendError({
+                    type: bt.Z.TRACK_TYPE_EVENT,
+                    eventData: {
+                        type: bt.Z.ERROR_TYPE_INTEGRATION,
+                        origin: "Validators.getDocumentValidator",
+                        reason: e,
+                    },
+                });
+            };
+            function jt(e, t, r) {
                 !(function (e, t) {
                     if (t.has(e))
                         throw new TypeError(
@@ -28132,7 +28348,7 @@
                 })(e, t),
                     t.set(e, r);
             }
-            function It(e, t, r) {
+            function Ut(e, t, r) {
                 return (
                     (function (e, t, r) {
                         if (t.set) t.set.call(e, r);
@@ -28143,48 +28359,48 @@
                                 );
                             t.value = r;
                         }
-                    })(e, Pt(e, t, "set"), r),
+                    })(e, Ft(e, t, "set"), r),
                     r
                 );
             }
-            function Ct(e, t) {
+            function qt(e, t) {
                 return (function (e, t) {
                     return t.get ? t.get.call(e) : t.value;
-                })(e, Pt(e, t, "get"));
+                })(e, Ft(e, t, "get"));
             }
-            function Pt(e, t, r) {
+            function Ft(e, t, r) {
                 if (!t.has(e))
                     throw new TypeError(
                         "attempted to " + r + " private field on non-instance"
                     );
                 return t.get(e);
             }
-            var Ot = new WeakMap(),
-                Nt = new WeakMap(),
-                Bt = new WeakMap(),
-                Lt = new WeakMap(),
-                Dt = new WeakMap(),
-                jt = new WeakMap(),
-                Ut = new WeakMap(),
-                qt = new WeakMap(),
-                Ft = new WeakMap(),
-                zt = new WeakMap(),
+            var zt = new WeakMap(),
                 Wt = new WeakMap(),
                 Kt = new WeakMap(),
                 Yt = new WeakMap(),
-                Vt = new WeakMap();
+                Vt = new WeakMap(),
+                $t = new WeakMap(),
+                Ht = new WeakMap(),
+                Gt = new WeakMap(),
+                Zt = new WeakMap(),
+                Xt = new WeakMap(),
+                Jt = new WeakMap(),
+                Qt = new WeakMap(),
+                er = new WeakMap(),
+                tr = new WeakMap();
             window.MercadoPago = class {
                 constructor(t) {
                     let n =
                         arguments.length > 1 && void 0 !== arguments[1]
                             ? arguments[1]
                             : {};
-                    xt(this, Ot, { writable: !0, value: void 0 }),
-                        xt(this, Nt, { writable: !0, value: void 0 }),
-                        xt(this, Bt, { writable: !0, value: void 0 }),
-                        xt(this, Lt, { writable: !0, value: void 0 }),
-                        xt(this, Dt, { writable: !0, value: void 0 }),
-                        xt(this, jt, { writable: !0, value: void 0 }),
+                    jt(this, zt, { writable: !0, value: void 0 }),
+                        jt(this, Wt, { writable: !0, value: void 0 }),
+                        jt(this, Kt, { writable: !0, value: void 0 }),
+                        jt(this, Yt, { writable: !0, value: void 0 }),
+                        jt(this, Vt, { writable: !0, value: void 0 }),
+                        jt(this, $t, { writable: !0, value: void 0 }),
                         (function (e, t, r) {
                             t in e
                                 ? Object.defineProperty(e, t, {
@@ -28197,7 +28413,7 @@
                         })(this, "fields", {
                             create: (t, r) => (
                                 e.ZP.setIframeEnabled(!0),
-                                Ct(this, Bt).fields.create(t, Ct(this, Dt), r)
+                                qt(this, Kt).fields.create(t, qt(this, Vt), r)
                             ),
                             createCardToken: async (t, r) => {
                                 i.tc.send({
@@ -28208,9 +28424,9 @@
                                     },
                                 });
                                 const n = this.formatTokenOptions(r);
-                                return Ct(this, Bt).fields.createCardToken(
+                                return qt(this, Kt).fields.createCardToken(
                                     t,
-                                    Ct(this, Dt),
+                                    qt(this, Vt),
                                     n
                                 );
                             },
@@ -28223,21 +28439,21 @@
                                     },
                                 });
                                 const n = this.formatTokenOptions(r);
-                                return Ct(this, Bt).fields.updateCardToken(
+                                return qt(this, Kt).fields.updateCardToken(
                                     t,
-                                    Ct(this, Dt),
+                                    qt(this, Vt),
                                     n
                                 );
                             },
                         }),
-                        xt(this, Ut, {
+                        jt(this, Ht, {
                             writable: !0,
                             value: (e) => {
                                 const t = (0, i.z8)(e);
                                 if (t) throw t;
                             },
                         }),
-                        xt(this, qt, {
+                        jt(this, Gt, {
                             writable: !0,
                             value: (e) => {
                                 const t = (0, i.zz)(e);
@@ -28264,7 +28480,7 @@
                                     );
                             },
                         }),
-                        xt(this, Ft, {
+                        jt(this, Zt, {
                             writable: !0,
                             value: (e) =>
                                 Object.assign(
@@ -28276,28 +28492,28 @@
                                     e
                                 ),
                         }),
-                        xt(this, zt, {
+                        jt(this, Xt, {
                             writable: !0,
                             value: async () => {
-                                It(this, Lt, new r.Z()),
-                                    It(
+                                Ut(this, Yt, new r.Z()),
+                                    Ut(
                                         this,
-                                        Bt,
-                                        new at.Z({ services: Ct(this, Lt) })
+                                        Kt,
+                                        new ot.Z({ services: qt(this, Yt) })
                                     ),
-                                    await (0, i.so)(Ct(this, Lt)),
-                                    await Ct(this, Wt).call(this),
+                                    await (0, i.so)(qt(this, Yt)),
+                                    await qt(this, Jt).call(this),
                                     i.tc.setContext({
                                         siteId: e.ZP.getSiteId(),
-                                        advancedFraudPrevention: Ct(this, Ot)
+                                        advancedFraudPrevention: qt(this, zt)
                                             .advancedFraudPrevention,
-                                        locale: Ct(this, Ot).locale,
+                                        locale: qt(this, zt).locale,
                                         publicKey: e.ZP.getPublicKey(),
                                         version: "2",
                                     });
                             },
                         }),
-                        xt(this, Wt, {
+                        jt(this, Jt, {
                             writable: !0,
                             value: async () => {
                                 try {
@@ -28323,23 +28539,23 @@
                                 }
                             },
                         }),
-                        xt(this, Kt, {
+                        jt(this, Qt, {
                             writable: !0,
                             value: async (e, t) => {
-                                await Ct(this, Nt),
-                                    Ct(this, jt) ||
+                                await qt(this, Wt),
+                                    qt(this, $t) ||
                                         i.tc.send({
                                             path: `${e || ""}`,
                                             type: i.tc.TRACK_TYPE_VIEW,
                                             eventData: t,
                                         }),
-                                    e && It(this, jt, !0);
+                                    e && Ut(this, $t, !0);
                             },
                         }),
-                        xt(this, Yt, {
+                        jt(this, er, {
                             writable: !0,
                             value: async (t) => {
-                                await Ct(this, Kt).call(this, "/core_methods", {
+                                await qt(this, Qt).call(this, "/core_methods", {
                                     is_iframe: e.ZP.getIframeEnabled(),
                                 }),
                                     i.tc.send({
@@ -28351,13 +28567,13 @@
                                     });
                             },
                         }),
-                        xt(this, Vt, {
+                        jt(this, tr, {
                             writable: !0,
                             value: async () => {
                                 try {
-                                    const { advancedFraudPrevention: t } = Ct(
+                                    const { advancedFraudPrevention: t } = qt(
                                         this,
-                                        Ot
+                                        zt
                                     );
                                     if (!t) return Promise.resolve();
                                     const r = await (0, ve.QO)();
@@ -28384,123 +28600,119 @@
                                 }
                             },
                         }),
-                        Ct(this, Ut).call(this, t),
-                        Ct(this, qt).call(this, n),
-                        It(this, Ot, Ct(this, Ft).call(this, n)),
-                        It(this, Dt, new ot.rR()),
-                        It(this, jt, !1),
+                        qt(this, Ht).call(this, t),
+                        qt(this, Gt).call(this, n),
+                        Ut(this, zt, qt(this, Zt).call(this, n)),
+                        Ut(this, Vt, new st.rR()),
+                        Ut(this, $t, !1),
                         n.siteId && e.ZP.setSiteId(n.siteId),
                         e.ZP.setPublicKey(t),
-                        e.ZP.setLocale(Ct(this, Ot).locale),
+                        e.ZP.setLocale(qt(this, zt).locale),
                         e.ZP.setIframeEnabled(!1),
-                        e.ZP.setTrackingDisabled(Ct(this, Ot).trackingDisabled),
-                        It(this, Nt, Ct(this, zt).call(this)),
-                        Ct(this, Kt).call(this, "", {
+                        e.ZP.setTrackingDisabled(qt(this, zt).trackingDisabled),
+                        Ut(this, Wt, qt(this, Xt).call(this)),
+                        qt(this, Qt).call(this, "", {
                             success: !0,
                             frontEndStack: n.frontEndStack || "JS",
                         }),
-                        Ct(this, Vt).call(this);
+                        qt(this, tr).call(this);
                 }
                 async getIdentificationTypes() {
                     return (
-                        await Ct(this, Nt),
-                        await Ct(this, Yt).call(this, "/identification_types"),
-                        Ct(this, Bt).getIdentificationTypes()
+                        await qt(this, Wt),
+                        await qt(this, er).call(this, "/identification_types"),
+                        qt(this, Kt).getIdentificationTypes()
                     );
                 }
                 async getPaymentMethods(e) {
                     return (
-                        await Ct(this, Nt),
-                        await Ct(this, Yt).call(this, "/payment_methods"),
-                        Ct(this, Bt).getPaymentMethods(e)
+                        await qt(this, Wt),
+                        await qt(this, er).call(this, "/payment_methods"),
+                        qt(this, Kt).getPaymentMethods(e)
                     );
                 }
                 async getIssuers(e) {
                     return (
-                        await Ct(this, Nt),
-                        await Ct(this, Yt).call(this, "/issuers"),
-                        Ct(this, Bt).getIssuers(e)
+                        await qt(this, Wt),
+                        await qt(this, er).call(this, "/issuers"),
+                        qt(this, Kt).getIssuers(e)
                     );
                 }
                 async getInstallments(e) {
                     return (
-                        await Ct(this, Nt),
-                        await Ct(this, Yt).call(this, "/installments"),
-                        Ct(this, Bt).getInstallments(e)
+                        await qt(this, Wt),
+                        await qt(this, er).call(this, "/installments"),
+                        qt(this, Kt).getInstallments(e)
                     );
                 }
                 async createCardToken(e, t) {
                     return (
-                        await Ct(this, Nt),
-                        await Ct(this, Yt).call(this, "/create_card_token"),
-                        Ct(this, Bt).createCardToken(e, t)
+                        await qt(this, Wt),
+                        await qt(this, er).call(this, "/create_card_token"),
+                        qt(this, Kt).createCardToken(e, t)
                     );
                 }
                 async updateCardToken(e, t) {
                     return (
-                        await Ct(this, Nt),
-                        await Ct(this, Yt).call(this, "/update_card_token"),
-                        Ct(this, Bt).updateCardToken(e, t)
+                        await qt(this, Wt),
+                        await qt(this, er).call(this, "/update_card_token"),
+                        qt(this, Kt).updateCardToken(e, t)
                     );
                 }
                 getDocumentValidator(e, t, r) {
                     return (function (e, t, r) {
                         switch (e) {
                             case "CPF":
-                                return new wt();
+                                return new _t();
                             case "CNPJ":
-                                return new vt();
+                                return new wt();
                             case "CI":
-                                return new yt();
+                                return new gt();
                             case "RUT":
-                                return new Rt();
+                                return new Lt();
+                            case "Otro":
+                                if (!t || !r) {
+                                    const e =
+                                        "Invalid value of minLength or maxLength for other validator";
+                                    throw (Dt(e), new Error(e));
+                                }
+                                return new Bt(t, r);
                             default:
                                 if (!t || !r) {
                                     const e =
                                         "Invalid value of minLength or maxLength for general validator";
-                                    throw (
-                                        (pt.Z.sendError({
-                                            type: pt.Z.TRACK_TYPE_EVENT,
-                                            eventData: {
-                                                type: pt.Z
-                                                    .ERROR_TYPE_INTEGRATION,
-                                                origin: "Validators.getDocumentValidator",
-                                                reason: e,
-                                            },
-                                        }),
-                                        new Error(e))
-                                    );
+                                    throw (Dt(e), new Error(e));
                                 }
-                                return new At(t, r);
+                                return new Rt(t, r);
                         }
                     })(e, t, r);
                 }
                 formatTokenOptions(e) {
                     return "object" != typeof e
-                        ? { productId: e, group: ot.AG }
+                        ? { productId: e, group: st.AG }
                         : e;
                 }
                 bricks(e) {
-                    return new it(e, this);
+                    return new nt(e, this);
                 }
                 cardForm(e) {
                     return (
-                        Ct(this, Kt).call(this, "/card_form", {
+                        qt(this, Qt).call(this, "/card_form", {
                             is_iframe: Boolean(e.iframe),
                         }),
-                        new nt.T(e, Ct(this, Nt))
+                        new at.T(e, qt(this, Wt))
                     );
                 }
                 checkout(e) {
                     return (
-                        Ct(this, Kt).call(this, "/cho_pro", {
+                        qt(this, Qt).call(this, "/cho_pro", {
                             preference_id: e.preference?.id || "",
                         }),
-                        new be(e, Ct(this, Nt))
+                        new be(e, qt(this, Wt))
                     );
                 }
                 tokenizer(e) {
-                    return Ct(this, Kt).call(this, "/tokenizer"), new lt(e);
+                    return qt(this, Qt).call(this, "/tokenizer"), new pt(e);
                 }
             };
         })();

@@ -1,256 +1,507 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!doctype html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Pagamento - {{ $plano->titulo ?? '' }}</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap5.3/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
 
+
+    <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
+
+    <link href="{{ asset('assets/payments/css/payment.css') }}" rel="stylesheet">
+
+    <!-- base de integração do mercado pago -->
+    <!-- https://www.mercadopago.com.br/developers/pt/docs/checkout-api/integration-configuration/card/integrate-via-core-methods -->
 
 </head>
 
-<body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <style>
-        .padding {
-            padding: 5rem !important;
-            margin-left: 300px;
-        }
+<body className='snippet-body'>
+    <div class="container-fluid px-0" id="bg-div">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-12">
+                <div class="card card0">
 
-        .card {
-            margin-bottom: 1.5rem;
-        }
+                    @if($plano)
 
-        .card {
-            position: relative;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            min-width: 0;
-            word-wrap: break-word;
-            background-color: #fff;
-            background-clip: border-box;
-            border: 1px solid #c8ced3;
-            border-radius: .25rem;
-        }
+                    <div class="d-flex" id="wrapper">
+                        <!-- Sidebar -->
+                        <div class="bg-light border-right" id="sidebar-wrapper">
+                            <div class="sidebar-heading pt-5 pb-4"><strong>PAGAR COM</strong></div>
+                            <div class="list-group list-group-flush"> <a data-toggle="tab" href="#option-1" id="tab2" class="tabs list-group-item active1">
+                                    <div class="list-div my-2">
+                                        <div class="fa fa-credit-card"></div> &nbsp;&nbsp; Cartão de Crédito
+                                    </div>
+                                </a> <a data-toggle="tab" href="#option-2" id="tab3" class="tabs list-group-item bg-light">
+                                    <div class="list-div my-2">
+                                        <div class="fa fa-qrcode"></div> &nbsp;&nbsp;&nbsp; PIX <span id="new-label">Novo</span>
+                                    </div>
+                                </a> </div>
+                        </div> <!-- Page Content -->
+                        <div id="page-content-wrapper">
+                            <div class="row pt-3" id="border-btm">
+                                <div class="col-4">
+                                    <button class="btn btn-success mt-4 ml-3 mb-3" id="menu-toggle">
+                                        <div class="bar4"></div>
+                                        <div class="bar4"></div>
+                                        <div class="bar4"></div>
+                                    </button>
+                                </div>
+                                <div class="col-8">
+                                    <div class="row justify-content-right">
+                                        <div class="col-12">
+                                            <p class="mb-0 mr-4 mt-4 text-right">{{ $plano->titulo }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-right">
+                                        <div class="col-12">
+                                            <p class="mb-0 mr-4 text-right">Valor a Pagar: <span class="top-highlight">R$ {{ number_format($plano->valor, 2, ',', '.') }}</span> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        .card-header:first-child {
-            border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
-        }
+                            <div class="tab-content">
 
-        .card-header {
-            padding: .75rem 1.25rem;
-            margin-bottom: 0;
-            background-color: #f0f3f5;
-            border-bottom: 1px solid #c8ced3;
-        }
+                                <div id="option-1" class="tab-pane in active">
+                                    <div class="row justify-content-center">
+                                        <div class="col-11">
+                                            <form id="form-checkout" action="{{ route('payment.proccess') }}" method="POST">
+                                                @csrf
 
-        .card-body {
-            flex: 1 1 auto;
-            padding: 1.25rem;
-        }
+                                                <div class="form-card">
+                                                    <h3 class="mt-0 mb-4 text-center mt-5">Preencha corretamente os dados abaixo para pagamento</h3>
 
-        .form-control:focus {
-            color: #5c6873;
-            background-color: #fff;
-            border-color: #c8ced3 !important;
-            outline: 0;
-            box-shadow: 0 0 0 #F44336;
-        }
-    </style>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="input-group">
+                                                                <input type="text" id="form-checkout__cardholderName" name="cardholderName" placeholder=" John Smith" required>
+                                                                <label>Proprietário do Cartão</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-    <div class="padding">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="input-group">
+                                                                <div id="form-checkout__cardNumber" class="form-checkout"></div>
+                                                                <label>Número do Cartão</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                    <form id="form-checkout">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="input-group">
+                                                                <div id="form-checkout__expirationDate" class="form-checkout"></div>
+                                                                <label>Data de Expiração</label>
+                                                            </div>
+                                                        </div>
 
-                        <div class="card-header">
-                            <strong>Credit Card</strong>
-                            <small>enter your card details</small>
+                                                        <div class="col-6">
+                                                            <div class="input-group">
+                                                                <div id="form-checkout__securityCode" class="form-checkout"></div>
+                                                                <label>CVV</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="input-group">
+                                                                <select id="form-checkout__installments" name="installments" class="form-checkout" required>
+                                                                    <option value="1">À vista</option>
+                                                                </select>
+                                                                <label>Parcelas</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="input-group">
+                                                                <input id="form-checkout__identificationNumber" name="identificationNumber" type="text" value="" required>
+                                                                <label>Documento</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="input-group">
+                                                                <input id="form-checkout__cardholderEmail" name="email" type="text" value="" required>
+                                                                <label>E-mail</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <select id="form-checkout__issuer" name="issuer" class="hidden"></select>
+                                                    <select id="form-checkout__identificationType" name="identificationType" class="hidden"></select>
+
+                                                    <input id="token" name="token" type="hidden">
+                                                    <input id="paymentMethodId" name="paymentMethodId" type="hidden">
+                                                    <input id="transactionAmount" name="transactionAmount" type="hidden" value="{{ $plano->valor }}">
+                                                    <input id="description" name="description" type="hidden" value="{{ $plano->titulo }}">
+                                                    <input id="tokenPlano" name="tokenPlano" type="hidden" value="{{ $plano->token }}">
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input type="submit" value="Pagar R$ {{ number_format($plano->valor, 2, ',', '.') }}" class="btn btn-success placeicon">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p class="text-center mb-5" id="below-btn"><a href="#">Tenho dúvidas ao efetuar o Pagamento</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="option-2" class="tab-pane">
+                                    <div class="row justify-content-center">
+                                        <div class="col-11 mt-5">
+                                            <h3 class="mt-0 mb-4 text-center">Escaneie o código QRCODE para efetuar o pagamento</h3>
+
+                                            <form id="form-checkout" action="{{ route('payment.pix') }}" method="post">
+                                                @csrf
+                                                <div>
+                                                    <div>
+                                                        <label for="payerFirstName">Nome</label>
+                                                        <input id="form-checkout__payerFirstName" name="payerFirstName" type="text">
+                                                    </div>
+                                                    <div>
+                                                        <label for="payerLastName">Sobrenome</label>
+                                                        <input id="form-checkout__payerLastName" name="payerLastName" type="text">
+                                                    </div>
+                                                    <div>
+                                                        <label for="email">E-mail</label>
+                                                        <input id="form-checkout__email" name="email" type="text">
+                                                    </div>
+                                                    <div>
+                                                        <label for="identificationType">Tipo de documento</label>
+                                                        <select id="form-checkout__identificationTypePix" name="identificationType" type="text"></select>
+                                                    </div>
+                                                    <div>
+                                                        <label for="identificationNumber">Número do documento</label>
+                                                        <input id="form-checkout__identificationNumber" name="identificationNumber" type="text">
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <div>
+                                                        <input id="paymentMethodId" name="paymentMethodId" type="hidden" value="pix">
+                                                        <input id="transactionAmount" name="transactionAmount" type="hidden" value="{{ $plano->valor }}">
+                                                        <input id="description" name="description" type="hidden" value="{{ $plano->titulo }}">
+                                                        <input id="tokenPlano" name="tokenPlano" type="hidden" value="{{ $plano->token }}">
+                                                        <input id="token" name="token" type="hidden">
+
+                                                        <br>
+                                                        <button type="submit">Gerar QR Code</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <!--  -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="form-checkout__cardholderName">Name</label>
-                                        <input type="text" id="form-checkout__cardholderName" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
 
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="ccnumber">Credit Card Number</label>
-                                        <div class="input-group">
-                                            <div class="form-control" id="form-checkout__cardNumber"></div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">
-                                                    <i class="mdi mdi-credit-card"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-sm-4">
-                                    <label for="form-checkout__expirationDate">Month</label>
-                                    <div id="form-checkout__expirationDate" class="container"></div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="form-checkout__securityCode">CVV/CVC</label>
-                                            <div class="form-control" id="form-checkout__securityCode"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                    @else
+                    <div class="row">
+                        <div class="col-12 mt-3 text-center">
+                            <p>Nenhum plano selecionado.</p>
+                        </div>
+                    </div>
+                    @endif
 
 
-
-                            </div>
-
-                            <select id="form-checkout__issuer"></select>
-                            <select id="form-checkout__installments"></select>
-                            <select id="form-checkout__identificationType"></select>
-                            <input type="text" id="form-checkout__identificationNumber" />
-                            <input type="email" id="form-checkout__cardholderEmail" />
-                            <div class="card-footer">
-                                <button class="btn btn-sm btn-success float-right" type="submit" id="form-checkout__submit">
-                                    <i class="mdi mdi-gamepad-circle"></i> Continue</button>
-                                <button class="btn btn-sm btn-danger" type="reset">
-                                    <i class="mdi mdi-lock-reset"></i> Reset</button>
-                            </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            //Menu Toggle Script
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            // For highlighting activated tabs
+            $("#tab1").click(function() {
+                $(".tabs").removeClass("active1");
+                $(".tabs").addClass("bg-light");
+                $("#tab1").addClass("active1");
+                $("#tab1").removeClass("bg-light");
+            });
+            $("#tab2").click(function() {
+                $(".tabs").removeClass("active1");
+                $(".tabs").addClass("bg-light");
+                $("#tab2").addClass("active1");
+                $("#tab2").removeClass("bg-light");
+            });
 
-
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
-    <script>
-        const mp = new MercadoPago("TEST-4a7ac857-01cc-4d13-acca-cbddede99a5f");
-
-
-        const cardForm = mp.cardForm({
-            amount: "100.5",
-            iframe: true,
-            form: {
-                id: "form-checkout",
-                cardNumber: {
-                    id: "form-checkout__cardNumber",
-                    placeholder: "Número do cartão",
-                },
-                expirationDate: {
-                    id: "form-checkout__expirationDate",
-                    placeholder: "MM/YY",
-                },
-                securityCode: {
-                    id: "form-checkout__securityCode",
-                    placeholder: "Código de segurança",
-                },
-                cardholderName: {
-                    id: "form-checkout__cardholderName",
-                    placeholder: "Titular do cartão",
-                },
-                issuer: {
-                    id: "form-checkout__issuer",
-                    placeholder: "Banco emissor",
-                },
-                installments: {
-                    id: "form-checkout__installments",
-                    placeholder: "Parcelas",
-                },
-                identificationType: {
-                    id: "form-checkout__identificationType",
-                    placeholder: "Tipo de documento",
-                },
-                identificationNumber: {
-                    id: "form-checkout__identificationNumber",
-                    placeholder: "Número do documento",
-                },
-                cardholderEmail: {
-                    id: "form-checkout__cardholderEmail",
-                    placeholder: "E-mail",
-                },
-            },
-            callbacks: {
-                onFormMounted: error => {
-                    if (error) return console.warn("Form Mounted handling error: ", error);
-                    console.log("Form mounted");
-                },
-                onBinChange: (bin) => {
-                    // callback chamado sempre que o bin do cartão é alterado
-                    console.log(bin);
-                },
-                onSubmit: event => {
-                    event.preventDefault();
-
-                    const {
-                        paymentMethodId: payment_method_id,
-                        issuerId: issuer_id,
-                        cardholderEmail: email,
-                        amount,
-                        token,
-                        installments,
-                        identificationNumber,
-                        identificationType,
-                    } = cardForm.getCardFormData();
-
-                    fetch("/process_payment", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            token,
-                            issuer_id,
-                            payment_method_id,
-                            transaction_amount: Number(amount),
-                            installments: Number(installments),
-                            description: "Descrição do produto",
-                            payer: {
-                                email,
-                                identification: {
-                                    type: identificationType,
-                                    number: identificationNumber,
-                                },
-                            },
-                        }),
-
-                    });
-                },
-                onFetching: (resource) => {
-                    console.log("Fetching resource: ", resource);
-
-                    // Animate progress bar
-                    const progressBar = document.querySelector(".progress-bar");
-                    progressBar.removeAttribute("value");
-
-                    return () => {
-                        progressBar.setAttribute("value", "0");
-                    };
-                }
-            },
+        })
+    </script>
+    <script type='text/javascript'>
+        var myLink = document.querySelector('a[href="#"]');
+        myLink.addEventListener('click', function(e) {
+            e.preventDefault();
         });
     </script>
+
+    <script src="{{ asset('assets/vendors/mercadopago/js/v2.js') }}"></script>
+
+    <script>
+        const mp = new MercadoPago("TEST-8195c897-c48e-408b-985b-a2998d117d58");
+
+
+        /** inicialização do cartão */
+        const cardNumberElement = mp.fields.create('cardNumber', {
+            placeholder: "",
+            style: {
+                "padding": "10px 15px 5px 15px",
+                "border": "none",
+                "border": "1px solid lightgrey",
+                "border-radius": "6px",
+                "margin-bottom": "25px",
+                "margin-top": "2px",
+                "width": "100%",
+                "boxsizing": "border-box",
+                "font-family": "arial",
+                "color": " #2C3E50",
+                "font-size": "14px",
+                "letter-spacing": "1px"
+            }
+        }).mount('form-checkout__cardNumber');
+        const expirationDateElement = mp.fields.create('expirationDate', {
+            placeholder: "MM/YY",
+        }).mount('form-checkout__expirationDate');
+        const securityCodeElement = mp.fields.create('securityCode', {
+            placeholder: "Código de segurança"
+        }).mount('form-checkout__securityCode');
+
+        /** inicialização do tipo de documento */
+
+        (async function getIdentificationTypes() {
+            try {
+                const identificationTypes = await mp.getIdentificationTypes();
+                const identificationTypeElement = document.getElementById('form-checkout__identificationType');
+
+                createSelectOptions(identificationTypeElement, identificationTypes);
+            } catch (e) {
+                return console.error('Error getting identificationTypes: ', e);
+            }
+        })();
+
+        function createSelectOptions(elem, options, labelsAndKeys = {
+            label: "name",
+            value: "id"
+        }) {
+            const {
+                label,
+                value
+            } = labelsAndKeys;
+
+            elem.options.length = 0;
+
+            const tempOptions = document.createDocumentFragment();
+
+            options.forEach(option => {
+                const optValue = option[value];
+                const optLabel = option[label];
+
+                const opt = document.createElement('option');
+                opt.value = optValue;
+                opt.textContent = optLabel;
+
+                tempOptions.appendChild(opt);
+            });
+
+            elem.appendChild(tempOptions);
+        }
+
+        /** inicialização do método de pagamento */
+
+        const paymentMethodElement = document.getElementById('paymentMethodId');
+        const issuerElement = document.getElementById('form-checkout__issuer');
+        const installmentsElement = document.getElementById('form-checkout__installments');
+
+        const issuerPlaceholder = "Banco emissor";
+        const installmentsPlaceholder = "Parcelas";
+
+        let currentBin;
+        cardNumberElement.on('binChange', async (data) => {
+            const {
+                bin
+            } = data;
+            try {
+                if (!bin && paymentMethodElement.value) {
+                    clearSelectsAndSetPlaceholders();
+                    paymentMethodElement.value = "";
+                }
+
+                if (bin && bin !== currentBin) {
+                    const {
+                        results
+                    } = await mp.getPaymentMethods({
+                        bin
+                    });
+                    const paymentMethod = results[0];
+
+                    paymentMethodElement.value = paymentMethod.id;
+                    updatePCIFieldsSettings(paymentMethod);
+                    updateIssuer(paymentMethod, bin);
+                    updateInstallments(paymentMethod, bin);
+                }
+
+                currentBin = bin;
+            } catch (e) {
+                console.error('error getting payment methods: ', e)
+            }
+        });
+
+        function clearSelectsAndSetPlaceholders() {
+            clearHTMLSelectChildrenFrom(issuerElement);
+            createSelectElementPlaceholder(issuerElement, issuerPlaceholder);
+
+            clearHTMLSelectChildrenFrom(installmentsElement);
+            createSelectElementPlaceholder(installmentsElement, installmentsPlaceholder);
+        }
+
+        function clearHTMLSelectChildrenFrom(element) {
+            const currOptions = [...element.children];
+            currOptions.forEach(child => child.remove());
+        }
+
+        function createSelectElementPlaceholder(element, placeholder) {
+            const optionElement = document.createElement('option');
+            optionElement.textContent = placeholder;
+            optionElement.setAttribute('selected', "");
+            optionElement.setAttribute('disabled', "");
+
+            element.appendChild(optionElement);
+        }
+
+        // Esta etapa melhora as validações cardNumber e securityCode
+        function updatePCIFieldsSettings(paymentMethod) {
+            const {
+                settings
+            } = paymentMethod;
+
+            const cardNumberSettings = settings[0].card_number;
+            cardNumberElement.update({
+                settings: cardNumberSettings
+            });
+
+            const securityCodeSettings = settings[0].security_code;
+            securityCodeElement.update({
+                settings: securityCodeSettings
+            });
+
+
+        }
+
+
+        async function updateIssuer(paymentMethod, bin) {
+            const {
+                additional_info_needed,
+                issuer
+            } = paymentMethod;
+            let issuerOptions = [issuer];
+
+            if (additional_info_needed.includes('issuer_id')) {
+                issuerOptions = await getIssuers(paymentMethod, bin);
+            }
+
+            createSelectOptions(issuerElement, issuerOptions);
+        }
+
+        async function getIssuers(paymentMethod, bin) {
+            try {
+                const {
+                    id: paymentMethodId
+                } = paymentMethod;
+                return await mp.getIssuers({
+                    paymentMethodId,
+                    bin
+                });
+            } catch (e) {
+                console.error('error getting issuers: ', e)
+            }
+        };
+
+
+        async function updateInstallments(paymentMethod, bin) {
+            try {
+                const installments = await mp.getInstallments({
+                    amount: document.getElementById('transactionAmount').value,
+                    bin,
+                    paymentTypeId: 'credit_card'
+                });
+                const installmentOptions = installments[0].payer_costs;
+                const installmentOptionsKeys = {
+                    label: 'recommended_message',
+                    value: 'installments'
+                };
+                createSelectOptions(installmentsElement, installmentOptions, installmentOptionsKeys);
+            } catch (error) {
+                console.error('error getting installments: ', e)
+            }
+        }
+
+
+        const formElement = document.getElementById('form-checkout');
+        formElement.addEventListener('submit', createCardToken);
+
+        async function createCardToken(event) {
+            try {
+                const tokenElement = document.getElementById('token');
+                if (!tokenElement.value) {
+                    event.preventDefault();
+                    const token = await mp.fields.createCardToken({
+                        cardholderName: document.getElementById('form-checkout__cardholderName').value,
+                        identificationType: document.getElementById('form-checkout__identificationType').value,
+                        identificationNumber: document.getElementById('form-checkout__identificationNumber').value,
+                    });
+                    tokenElement.value = token.id;
+                    formElement.requestSubmit();
+                }
+            } catch (e) {
+                console.error('error creating card token: ', e)
+            }
+        }
+    </script>
+
+    <script>
+        (async function getIdentificationTypes() {
+            try {
+                const identificationTypes = await mp.getIdentificationTypes();
+                const identificationTypeElement = document.getElementById('form-checkout__identificationTypePix');
+
+                createSelectOptions(identificationTypeElement, identificationTypes);
+            } catch (e) {
+                return console.error('Error getting identificationTypes: ', e);
+            }
+        })();
+
+        $("#form-checkout__cardNumber").change(function() {
+            console.log("Card: ", $(this).val())
+        })
+    </script>
+
+
+    @vite(['resources/js/app.js'])
+
 </body>
 
 </html>
