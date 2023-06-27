@@ -21,7 +21,7 @@ class ClienteController extends Controller
     public function index()
     {
         // Filtro para empresas
-        $lista = Cliente::all();
+        $lista = Cliente::where('user_id', Auth::id())->get();
         return view('pages.cadastros.clientes.index', compact('lista'));
     }
 

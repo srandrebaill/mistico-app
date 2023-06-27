@@ -10,13 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Dirape\Token\Token;
 
-
 use Session;
-
-use App\Traits\Configuracao;
-use App\Traits\FuncoesAdaptadas;
-
-
 
 class VendaController extends Controller
 {
@@ -25,14 +19,14 @@ class VendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    use Configuracao;
-    use FuncoesAdaptadas;
 
     public function index()
     {
         // Filtro para empresas
-        $lista = Venda::all();
-        return view('pages.vendas.index', compact('lista'));
+        $lista = Venda::where('user_id', Auth::id())->get();
+        $venda['expressa'] = Venda::where('user_id', Auth::id())->sum('payment_amount');
+        $venda['total'] = Venda::where('user_id', Auth::id())->count();
+        return view('pages.vendas.index', compact('lista', 'venda'));
     }
 
     /**

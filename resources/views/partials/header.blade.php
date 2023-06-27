@@ -177,6 +177,7 @@
 					<i class="mdi mdi-home menu-icon"></i>
 				</a>
 			</li>
+			@if(Auth::user()->level_id==1)
 			<li class="nav-item">
 				<a class="nav-link" data-bs-toggle="collapse" href="#configuracoes" aria-expanded="false" aria-controls="configuracoes">
 					<span class="menu-title">Configurações</span>
@@ -187,10 +188,13 @@
 					<ul class="nav flex-column sub-menu">
 						<li class="nav-item"> <a class="nav-link" href="{{ route('usuario_tipo') }}">Tipos de Usuário</a></li>
 						<li class="nav-item"> <a class="nav-link" href="{{ route('usuario') }}">Usuários</a></li>
-						<li class="nav-item"> <a class="nav-link" href="{{ route('modulo') }}">Módulos</a></li>
+						<!-- <li class="nav-item"> <a class="nav-link" href="{{ route('modulo') }}">Módulos</a></li> -->
 					</ul>
 				</div>
 			</li>
+			@endif
+
+			@if(Auth::user()->level_id==2)
 			<li class="nav-item">
 				<a class="nav-link" data-bs-toggle="collapse" href="#cadastros" aria-expanded="false" aria-controls="cadastros">
 					<span class="menu-title">Cadastros</span>
@@ -204,19 +208,18 @@
 					</ul>
 				</div>
 			</li>
+			@endif
+
+			@if(Auth::user()->level_id==2)
+
 			<li class="nav-item">
-				<a class="nav-link" data-bs-toggle="collapse" href="#vendas" aria-expanded="false" aria-controls="vendas">
-					<span class="menu-title">Vendas</span>
-					<i class="menu-arrow"></i>
-					<i class="mdi mdi-crosshairs-gps menu-icon"></i>
+				<a class="nav-link" href="{{ route('saque') }}">
+					<span class="menu-title">Soliciitar Saque</span>
+					<i class="mdi mdi-cash-multiple menu-icon"></i>
 				</a>
-				<div class="collapse" id="vendas">
-					<ul class="nav flex-column sub-menu">
-						<li class="nav-item"> <a class="nav-link" href="{{ route('venda') }}">Minhas Vendas</a></li>
-						<li class="nav-item"> <a class="nav-link" href="{{ route('saque') }}">Solicitar Saque</a></li>
-					</ul>
-				</div>
 			</li>
+			@endif
+
 			<li class="nav-item">
 				<a class="nav-link" href="{{ route('extrato') }}">
 					<span class="menu-title">Extrato</span>

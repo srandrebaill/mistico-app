@@ -41,7 +41,6 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 
 
 Route::get('saque', [DashboardController::class, 'index'])->name('saque');
-Route::get('extrato', [DashboardController::class, 'index'])->name('extrato');
 
 
 /* Grupo de Rotas Autenticadas */
@@ -91,6 +90,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('venda/adicionar',                                 [VendaController::class, 'create'])->name('venda.adicionar');   
     Route::post('venda/adicionar/store',                          [VendaController::class, 'store'])->name('venda.store');
     Route::get('venda/detalhes/{id}',                             [VendaController::class, 'show'])->name('venda.show');
+
+    Route::get('extrato',                                         [VendaController::class, 'index'])->name('extrato');
 });
 
 

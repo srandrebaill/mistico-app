@@ -79,6 +79,9 @@ class ConfiguracaoUsuarioController extends Controller
         $user->name = $request->nome;
         $user->password = Hash::make($request->password);
         $user->email = $request->email;
+        if (Auth::user()->level_id == 1) {
+            $user->level_id = $request->nivel;
+        }
         $user->save();
 
         return redirect(route('usuario.editar', $user->id))

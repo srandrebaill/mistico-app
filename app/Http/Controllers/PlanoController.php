@@ -15,7 +15,7 @@ class PlanoController extends Controller
     public function index()
     {
         //
-        $lista = Plano::all();
+        $lista = Plano::where('user_id', Auth::id())->get();
         return view('pages.cadastros.planos.index', compact('lista'));
     }
 
@@ -63,7 +63,13 @@ class PlanoController extends Controller
     public function show(Plano $plano)
     {
         //
-        $store = Plano::find($plano);
+        $store = Plano::where('user_id', Auth::id())->find($plano);
+
+        if (!$store) {
+            return  redirect(route('plano'))
+            ->with('error', 'Não foi possível abrir este registro.');
+        }
+
         return view('pages.cadastros.planos.form', compact('store'));
     }
 
@@ -73,7 +79,11 @@ class PlanoController extends Controller
     public function edit($id)
     {
         //
-        $store = Plano::find($id);
+        $store = Plano::where('user_id', Auth::id())->find($id);
+        if (!$store && $store == null) {
+            return  redirect(route('plano'))
+            ->with('error', 'Não foi possível abrir este registro.');
+        }
         return view('pages.cadastros.planos.form', compact('store'));
     }
 
