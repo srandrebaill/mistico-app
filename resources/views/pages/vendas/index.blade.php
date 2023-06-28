@@ -17,6 +17,10 @@
         background: rgb(30, 184, 40);
         background: linear-gradient(0deg, rgba(30, 184, 40, 1) 0%, rgba(192, 32, 40, 1) 100%);
     }
+
+    .fee-amount {
+        color: red !important;
+    }
 </style>
 
 
@@ -78,6 +82,8 @@
                             <th>Pago</th>
                             <th>Método</th>
                             <th>Valor</th>
+                            <th>Taxa</th>
+                            <th>Receber</th>
                             <th>Situação</th>
                         </tr>
                     </thead>
@@ -90,6 +96,8 @@
                             <td>{{ date("d/m/Y H:i:s", strtotime($v->created_at)) }}</td>
                             <td>{{ $v->type_payment }}</td>
                             <td> R$ {{ number_format($v->plano->valor, 2, ',', '.') }}</td>
+                            <td class="fee-amount"> R$ {{ number_format($v->payment_amount_fee, 2, ',', '.') }}</td>
+                            <td> R$ {{ number_format($v->payment_amount, 2, ',', '.') }}</td>
                             <td><span class="badge badge-warning">{{ $v->status }}</span></td>
                         </tr>
                         @endforeach
