@@ -262,7 +262,7 @@
     <script src="{{ asset('assets/vendors/mercadopago/js/v2.js') }}"></script>
 
     <script>
-        const mp = new MercadoPago("{{ env('PAYMENT_MP_PUBLIC')}}");
+        const mp = new MercadoPago("{{ env('PAYMENT_MP_PUBLIC_DEV')}}");
 
 
         /** inicialização do cartão */

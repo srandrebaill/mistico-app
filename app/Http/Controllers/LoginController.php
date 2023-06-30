@@ -32,7 +32,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->route('dashboard')
-                ->withSuccess('Signed in');
+                ->withSuccess('Login efetuado com sucesso!');
         }
 
         return redirect("login")->withError('Estes dados de acesso não são válidos.');
@@ -44,7 +44,7 @@ class LoginController extends Controller
             return view('dashboard');
         }
 
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect("login")->withSuccess('Seja bem vindo à sua Área de Trabalho!');
     }
 
     public function signOut()

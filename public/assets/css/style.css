@@ -24194,7 +24194,7 @@ div.tagsinput span.tag a {
   margin-bottom: 2rem;
 }
 .auth .brand-logo img {
-  width: 150px;
+  width: 250px;
 }
 .auth form .form-group {
   margin-bottom: 1.5rem;
@@ -25830,9 +25830,8 @@ footer h4 a, footer .h4 a {
   color: #1b2658;
 }
 .navbar .navbar-brand-wrapper .navbar-brand img {
-  width: calc(260px - 120px );
+  width: calc(401px - 162px);
   max-width: 100%;
-  height: 28px;
   margin: auto;
   vertical-align: middle;
 }
@@ -25842,7 +25841,6 @@ footer h4 a, footer .h4 a {
 .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini img {
   width: calc(70px - 50px );
   max-width: 100%;
-  height: 28px;
   margin: auto;
 }
 .navbar .navbar-menu-wrapper {
@@ -26429,7 +26427,6 @@ footer h4 a, footer .h4 a {
 .sidebar .nav .nav-item.nav-profile .nav-link .nav-profile-image img {
   width: 44px;
   height: 44px;
-  border-radius: 100%;
 }
 .sidebar .nav .nav-item.nav-profile .nav-link .nav-profile-text {
   margin-left: 1rem;

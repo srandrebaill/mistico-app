@@ -8,7 +8,7 @@
             <div class="col-lg-4 mx-auto">
                 <div class="auth-form-light text-left p-5">
                     <div class="brand-logo text-center">
-                        <img src="{{ asset('assets/images/logo.svg') }}">
+                        <img src="{{ asset('assets/logotipo.jpg') }}">
                     </div>
                     <hr>
                     <h4>Olá. Seja bem vindo (a)!</h4>

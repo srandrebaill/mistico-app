@@ -39,7 +39,7 @@ class PaymentController extends Controller
     {
 
         /** Token Inicial */
-        MercadoPago\SDK::setAccessToken(env('PAYMENT_MP_PRIVATE'));
+        MercadoPago\SDK::setAccessToken(env('PAYMENT_MP_PRIVATE_DEV'));
         $plano = Plano::where('token', $request->input('tokenPlano'))->first();
 
         try {
@@ -206,7 +206,7 @@ class PaymentController extends Controller
         # "ticket_url": "https://www.mercadopago.com.br/sandbox/payments/1313539048/ticket?caller_id=25396665&hash=1f37be42-86a1-48f5-9678-7fc63243b0fa"
 
 
-        MercadoPago\SDK::setAccessToken(env('PAYMENT_MP_PRIVATE'));
+        MercadoPago\SDK::setAccessToken(env('PAYMENT_MP_PRIVATE_DEV'));
         $payment = new MercadoPago\Payment();
         $payment->transaction_amount = (float) $request->transactionAmount;;
         $payment->token = $request->token;
