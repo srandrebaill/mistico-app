@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/paygestao/public_html #Add /<sub_folder> if required
+    - export DEPLOYPATH=/home/payrecar/public_html/vendas #Add /<sub_folder> if required
     - /bin/cp -r * $DEPLOYPATH
