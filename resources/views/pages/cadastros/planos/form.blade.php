@@ -40,12 +40,21 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-12">
+                    <div class="row pt-4">
+                        <div class=" col-12">
                             <label for="valor" class="form-label">Valor</label>
                             <input type="text" class="form-control money" id="valor" value="{{ isset($store) ? 'R$ ' . number_format($store->valor, 2, ',', '.') : '' }}" name="valor" placeholder="R$ 0,00" required>
                         </div>
                     </div>
+
+                    @if(isset($store))
+                    <div class="row pt-4">
+                        <div class="col-12">
+                            <label for="token" class="form-label">Token de Pagamento</label>
+                            <input type="text" class="form-control" value="{{ isset($store) ? url('payment', $store->token) : $tokenPlano }}" name="token" id="token" placeholder="Token do Plano" {{ isset($store) ? 'disabled' : 'readonly' }}>
+                        </div>
+                    </div>
+                    @endif
 
                     <div class="mt-5">
                         <button type="submit" class="btn btn-gradient-primary font-weight-medium">Salvar</button>

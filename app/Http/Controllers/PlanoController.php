@@ -25,7 +25,8 @@ class PlanoController extends Controller
     public function create()
     {
         //
-        return view('pages.cadastros.planos.form');
+        $tokenPlano = (new Token())->Unique('planos', 'token', 32);
+        return view('pages.cadastros.planos.form', compact('tokenPlano'));
     }
 
     /**
@@ -50,7 +51,7 @@ class PlanoController extends Controller
         $plano->titulo = $request->titulo;
         $plano->valor = str_replace("R$ ", "", str_replace(",", ".", str_replace(".", "", $request->valor)));
         $plano->user_id = Auth::id();
-        $plano->token = (new Token())->Unique('planos', 'token', 32);
+        $plano->token = ($request->token) ?? (new Token())->Unique('planos', 'token', 32);
         $plano->save();
 
         return redirect(route('plano.editar', $plano->id))

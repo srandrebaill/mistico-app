@@ -227,6 +227,9 @@
         </div>
     </div>
     </div>
+
+    <link rel="stylesheet" href="{{ asset('assets/vendors/toasts/css/jquery.toast.min.css') }}">
+    <script src="{{ asset('assets/vendors/toasts/js/jquery.toast.min.js') }}"></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>
         $(document).ready(function() {
@@ -278,7 +281,7 @@
                 "width": "100%",
                 "boxsizing": "border-box",
                 "font-family": "arial",
-                "color": " #2C3E50",
+                "color": "#2C3E50",
                 "font-size": "14px",
                 "letter-spacing": "1px"
             }
@@ -477,6 +480,24 @@
                     formElement.requestSubmit();
                 }
             } catch (e) {
+
+
+                $.each(e, function(index, value) {
+                    console.log("Erro Index:", index)
+                    console.log("Erro 2:", value.cause)
+                    console.log("Field", value.field)
+                    console.log("Msg", value.message)
+
+
+                    $.toast({
+                        heading: 'Positioning',
+                        text: 'Use the predefined ones, or specify a custom position object.',
+                        position: 'top-center',
+                        stack: false
+                    })
+                })
+
+
                 console.error('error creating card token: ', e)
             }
         }
