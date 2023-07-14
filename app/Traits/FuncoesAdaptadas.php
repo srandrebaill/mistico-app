@@ -45,12 +45,6 @@ Trait FuncoesAdaptadas
         exit;
     }
 
-    public function importar_cliente_nome($nome){        
-        if(!$nome) return null;
-        return mb_strtoupper(str_replace("+", "", $nome));        
-    }
-
-
     public function formata_data($data){
         return date("d/m/Y H:i", strtotime($data));
     }

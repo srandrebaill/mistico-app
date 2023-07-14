@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\ConfiguracaoUsuarioNiveis;
 
-use Session;
+use Illuminate\Support\Facades\Session;
+
+
 
 
 class ConfiguracaoModulo extends Model
@@ -63,8 +65,8 @@ class ConfiguracaoModulo extends Model
     static function get_modulos_permitidos()
     {
 
-        if (Auth::check() && isset(Session::get('usuario_vinculo')['id_nivel'])) {
-            $permissoes = json_decode((ConfiguracaoUsuarioNiveis::find(Session::get('usuario_vinculo')['id_nivel']))->permissoes);  
+
+        $permissoes = json_decode((ConfiguracaoUsuarioNiveis::find(1))->permissoes);  
 
             if(count((array)$permissoes)==0){
                 return [];
@@ -79,9 +81,9 @@ class ConfiguracaoModulo extends Model
                 return $modulo;
             }
 
-        }
+        
 
-        return [];
+       
     }
 
     

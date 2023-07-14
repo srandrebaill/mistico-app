@@ -47,25 +47,25 @@ Route::get('saque', [DashboardController::class, 'index'])->name('saque');
 Route::group(['middleware' => 'auth'], function () {
 
     /* Tipos de Usuário */
-    Route::get('admin/configuracao/usuario_tipo',                 [ConfiguracaoUsuarioTipoController::class, 'index'])->name('usuario_tipo');
-    Route::get('admin/configuracao/usuario_tipo/editar/{id?}',    [ConfiguracaoUsuarioTipoController::class, 'edit'])->name('usuario_tipo.editar');
-    Route::get('admin/configuracao/usuario_tipo/adicionar',       [ConfiguracaoUsuarioTipoController::class, 'create'])->name('usuario_tipo.adicionar');
-    Route::post('admin/configuracao/usuario_tipo/store',          [ConfiguracaoUsuarioTipoController::class, 'store'])->name('usuario_tipo.store');
-    Route::post('admin/configuracao/usuario_tipo/update/{id}',    [ConfiguracaoUsuarioTipoController::class, 'update'])->name('usuario_tipo.update');
+    Route::get('configuracao/usuario_tipo',                 [ConfiguracaoUsuarioTipoController::class, 'index'])->name('usuario_tipo');
+    Route::get('configuracao/usuario_tipo/editar/{id?}',    [ConfiguracaoUsuarioTipoController::class, 'edit'])->name('usuario_tipo.editar');
+    Route::get('configuracao/usuario_tipo/adicionar',       [ConfiguracaoUsuarioTipoController::class, 'create'])->name('usuario_tipo.adicionar');
+    Route::post('configuracao/usuario_tipo/store',          [ConfiguracaoUsuarioTipoController::class, 'store'])->name('usuario_tipo.store');
+    Route::post('configuracao/usuario_tipo/update/{id}',    [ConfiguracaoUsuarioTipoController::class, 'update'])->name('usuario_tipo.update');
 
     /* Usuários */
-    Route::get('admin/configuracao/usuario',                      [ConfiguracaoUsuarioController::class, 'index'])->name('usuario');
-    Route::get('admin/configuracao/usuario/editar/{id?}',         [ConfiguracaoUsuarioController::class, 'edit'])->name('usuario.editar');
-    Route::get('admin/configuracao/usuario/adicionar',            [ConfiguracaoUsuarioController::class, 'create'])->name('usuario.adicionar');
-    Route::post('admin/configuracao/usuario/store',               [ConfiguracaoUsuarioController::class, 'store'])->name('usuario.store');
-    Route::post('admin/configuracao/usuario/update/{id}',         [ConfiguracaoUsuarioController::class, 'update'])->name('usuario.update');
+    Route::get('configuracao/usuario',                      [ConfiguracaoUsuarioController::class, 'index'])->name('usuario');
+    Route::get('configuracao/usuario/editar/{id?}',         [ConfiguracaoUsuarioController::class, 'edit'])->name('usuario.editar');
+    Route::get('configuracao/usuario/adicionar',            [ConfiguracaoUsuarioController::class, 'create'])->name('usuario.adicionar');
+    Route::post('configuracao/usuario/store',               [ConfiguracaoUsuarioController::class, 'store'])->name('usuario.store');
+    Route::post('configuracao/usuario/update/{id}',         [ConfiguracaoUsuarioController::class, 'update'])->name('usuario.update');
 
     /* Módulos */
-    Route::get('admin/configuracao/modulo',                       [ConfiguracaoModuloController::class, 'index'])->name('modulo');
-    Route::get('admin/configuracao/modulo/editar/{id?}',          [ConfiguracaoModuloController::class, 'edit'])->name('modulo.editar');
-    Route::get('admin/configuracao/modulo/adicionar',             [ConfiguracaoModuloController::class, 'create'])->name('modulo.adicionar');
-    Route::post('admin/configuracao/modulo/store',                [ConfiguracaoModuloController::class, 'store'])->name('modulo.store');
-    Route::post('admin/configuracao/modulo/update/{id}',          [ConfiguracaoModuloController::class, 'update'])->name('modulo.update');
+    Route::get('configuracao/modulo',                       [ConfiguracaoModuloController::class, 'index'])->name('modulo');
+    Route::get('configuracao/modulo/editar/{id?}',          [ConfiguracaoModuloController::class, 'edit'])->name('modulo.editar');
+    Route::get('configuracao/modulo/adicionar',             [ConfiguracaoModuloController::class, 'create'])->name('modulo.adicionar');
+    Route::post('configuracao/modulo/store',                [ConfiguracaoModuloController::class, 'store'])->name('modulo.store');
+    Route::post('configuracao/modulo/update/{id}',          [ConfiguracaoModuloController::class, 'update'])->name('modulo.update');
 
 
 
@@ -85,20 +85,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('cadastro/cliente/update/{id}',                   [ClienteController::class, 'update'])->name('cliente.update');
 
 
-    /* Vendas */
-    Route::get('venda',                                           [VendaController::class, 'index'])->name('venda');
-    Route::get('venda/adicionar',                                 [VendaController::class, 'create'])->name('venda.adicionar');   
-    Route::post('venda/adicionar/store',                          [VendaController::class, 'store'])->name('venda.store');
-    Route::get('venda/detalhes/{id}',                             [VendaController::class, 'show'])->name('venda.show');
-
-    Route::get('extrato',                                         [VendaController::class, 'index'])->name('extrato');
+    
 });
-
-
-Route::get('payment/{token}',                                     [PaymentController::class, 'create'])->name('payment');
-Route::post('payment/proccess',                                   [PaymentController::class, 'proccess'])->name('payment.proccess');
-
-Route::post('payment/process/pix',                                [PaymentController::class, 'proccess_pix'])->name('payment.pix');
-Route::post('process/card',                                       [PaymentController::class, 'proccess_card'])->name('payment.card');
-Route::get('payment_success/{token}',                             [PaymentController::class, 'success'])->name('payment.success');
-Route::get('payment_invalid',                                     [PaymentController::class, 'payment_invalid'])->name('payment.error');

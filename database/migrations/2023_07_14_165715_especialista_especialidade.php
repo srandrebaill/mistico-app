@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('planos', function (Blueprint $table) {
+        //
+        Schema::create('especialista_especialidade', function (Blueprint $table) {
             $table->id();
-            
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-
             $table->string('titulo')->nullable();
-            $table->float('valor')->default('0.00');
-            $table->string('token', 64)->unique();
+            $table->enum('situacao', ['Ativo', 'Inativo'])->default('Ativo');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('planos');
+        //
+
     }
 };

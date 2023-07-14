@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\EspecialistaAssunto;
+use App\Models\EspecialistaDisponibilidade;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +19,9 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             NiveisSeeder::class,
             ModulosSeeder::class,
-            VendasStatusSeeder::class
+            EspecialistaAssuntoSeeder::class,
+            EspecialistaDisponibilidadeSeeder::class,
+            EspecialistaDisponibilidadeSeeder::class,
         ]);
 
     }

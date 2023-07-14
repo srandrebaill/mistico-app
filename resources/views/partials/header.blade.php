@@ -67,27 +67,51 @@
 					<i class="mdi mdi-home menu-icon"></i>
 				</a>
 			</li>
-			@if(Auth::user()->level_id==1)
+
+
+
+			@foreach ($modulos_permitidos as $module)
 			<li class="nav-item">
-				<a class="nav-link" data-bs-toggle="collapse" href="#configuracoes" aria-expanded="false" aria-controls="configuracoes">
-					<span class="menu-title">Configurações</span>
+
+				@if (count($module['submodulo']) > 0)
+				<a class="nav-link" data-bs-toggle="collapse" href="#{{ $module['url_amigavel'] }}" aria-expanded="false" aria-controls="{{ $module['url_amigavel'] }}">
+					<span class="menu-title">{{ $module['titulo'] }}</span>
 					<i class="menu-arrow"></i>
-					<i class="mdi mdi-crosshairs-gps menu-icon"></i>
+					<i class="{{ $module['icone'] }} menu-icon"></i>
 				</a>
-				<div class="collapse" id="configuracoes">
+
+				@else
+				<a class="nav-link" href="{{ env('URL_APP_ADMIN') }}{{ $module['url_amigavel'] }}">
+					<span class="menu-title">{{ $module['titulo'] }}</span>
+					<i class="{{ $module['icone'] }} menu-icon"></i>
+				</a>
+				@endif
+
+				@if (count($module['submodulo']) > 0)
+				<div class="collapse" id="{{ $module['url_amigavel'] }}">
 					<ul class="nav flex-column sub-menu">
-						<li class="nav-item"> <a class="nav-link" href="{{ route('usuario_tipo') }}">Tipos de Usuário</a></li>
-						<li class="nav-item"> <a class="nav-link" href="{{ route('usuario') }}">Usuários</a></li>
-						<li class="nav-item"> <a class="nav-link" href="{{ route('modulo') }}">Módulos</a></li>
+						@foreach ($module['submodulo'] as $sub)
+						<?php
+						$item = env('URL_APP_ADMIN') . Request::segment(2) . '/' . Request::segment(3);
+
+						?>
+						<li class="nav-item"> <a class="nav-link {{ $item === $sub['url_amigavel'] ? 'active-submodulo' : '' }}" href="{{ url($sub['url_amigavel']) }}">{{ $sub['titulo'] }}</a>
+						</li>
+						@endforeach
 					</ul>
 				</div>
+				@endif
 			</li>
-			@endif
+			@endforeach
+
+
+
+
 
 			@if(Auth::user()->level_id==2)
 			<li class="nav-item">
 				<a class="nav-link" data-bs-toggle="collapse" href="#cadastros" aria-expanded="false" aria-controls="cadastros">
-					<span class="menu-title">Cadastros</span>
+					<span class="menu-title">Cadastros </span>
 					<i class="menu-arrow"></i>
 					<i class="mdi mdi-crosshairs-gps menu-icon"></i>
 				</a>
@@ -100,22 +124,7 @@
 			</li>
 			@endif
 
-			@if(Auth::user()->level_id==2)
 
-			<li class="nav-item">
-				<a class="nav-link" href="{{ route('saque') }}">
-					<span class="menu-title">Solicitar Saque</span>
-					<i class="mdi mdi-cash-multiple menu-icon"></i>
-				</a>
-			</li>
-			@endif
-
-			<li class="nav-item">
-				<a class="nav-link" href="{{ route('extrato') }}">
-					<span class="menu-title">Extrato</span>
-					<i class="mdi mdi-contacts menu-icon"></i>
-				</a>
-			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="{{ route('signout') }}">
 					<span class="menu-title">Sair do Sistema</span>

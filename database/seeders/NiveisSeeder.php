@@ -24,7 +24,7 @@ class NiveisSeeder extends Seeder
             ],
             [
                 'titulo' => 'Revenda',
-                'permissoes' => '{"6":{"7":{"view":"on","add":"on","edit":"on","delete":"on"},"8":{"view":"on","add":"on","edit":"on","delete":"on"}},"1":{"4":{"other":"on"}}}'
+                'permissoes' => ''
             ]
         );
 
