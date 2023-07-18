@@ -40,13 +40,6 @@
                     @csrf
 
                     <div class="row mt-3">
-                        <div class="col-md-2">
-                            <label for="codigo_cliente" class="form-label">Código do Cliente</label>
-                            <input type="text" class="form-control" id="codigo_cliente" value="{{ (old('codigo_cliente', @$store->codigo_cliente)) ?? $codigo_cliente }}" name="codigo_cliente" readonly>
-                        </div>                        
-                    </div>
-
-                    <div class="row mt-3">
                         <div class="col-md-9">
                             <label for="nome" class="form-label">Nome Completo</label>
                             <input type="text" class="form-control" id="nome" value="{{ old('nome', @$store->nome) }}" name="nome">

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             ModulosSeeder::class,
             EspecialistaAssuntoSeeder::class,
             EspecialistaDisponibilidadeSeeder::class,
-            EspecialistaDisponibilidadeSeeder::class,
+            EspecialistaEspecialidadeSeeder::class,
         ]);
 
     }

@@ -19,7 +19,7 @@ class NiveisSeeder extends Seeder
         $data = array(
             [
                 'titulo' => 'Administrador',
-                'permissoes' => '{"1":{"4":{"other":"on"},"5":{"view":"on","add":"on","edit":"on","delete":"on"},"2":{"view":"on","add":"on","edit":"on","delete":"on"},"3":{"view":"on","add":"on","edit":"on","delete":"on"}}}'
+                'permissoes' => '{"1":{"2":{"view":"on","add":"on","edit":"on","delete":"on"},"3":{"view":"on","add":"on","edit":"on","delete":"on"},"4":{"view":"on","add":"on","edit":"on","delete":"on"}},"5":{"6":{"view":"on","add":"on","edit":"on","delete":"on"},"7":{"view":"on","add":"on","edit":"on","delete":"on"}},"8":{"10":{"view":"on","add":"on","edit":"on","delete":"on"},"9":{"view":"on","add":"on","edit":"on","delete":"on"},"11":{"view":"on","add":"on","edit":"on","delete":"on"}},"12":{"13":{"other":"on"}}}'
 
             ],
             [

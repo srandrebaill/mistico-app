@@ -14,14 +14,16 @@ class EspecialistaAssuntoSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('especialista_assunto')->insert(
-            ['titulo' => 'Amor'],
-            ['titulo' => 'Saúde'],
-            ['titulo' => 'Dinheiro'],
-            ['titulo' => 'Carreira'],
-            ['titulo' => 'Família'],
-            ['titulo' => 'Questões Judiciais'],
-            ['titulo' => 'Autoconhecimento']
+        DB::table('especialista_assuntos')->insert(
+            array(
+                ['titulo' => 'Amor'],
+                ['titulo' => 'Saúde'],
+                ['titulo' => 'Dinheiro'],
+                ['titulo' => 'Carreira'],
+                ['titulo' => 'Família'],
+                ['titulo' => 'Questões Judiciais'],
+                ['titulo' => 'Autoconhecimento']
+            )
         );
     }
 }

@@ -21,7 +21,7 @@
 
 <script src="{{ asset('assets/vendors/input.mask/js/jquery.maskMoney.js') }}"></script>
 
-<script src="{{ asset('vendors/select2/js/select2.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/select2/js/select2.min.js') }}"></script>
 
 <!-- <script src="{{ asset('assets/vendors/bootstrap5.3/js/bootstrap.bundle.min.js') }}"></script> -->
 

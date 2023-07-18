@@ -14,14 +14,16 @@ class EspecialistaDisponibilidadeSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('especialista_disponibilidade')->insert(
-            ['diadasemana' => 'Segunda-Feira'],
-            ['diadasemana' => 'Terça-Feira'],
-            ['diadasemana' => 'Quarta-Feira'],
-            ['diadasemana' => 'Quinta-Feira'],
-            ['diadasemana' => 'Sexta-Feira'],
-            ['diadasemana' => 'Sábado'],
-            ['diadasemana' => 'Domingo']
+        DB::table('especialista_disponibilidades')->insert(
+            array(
+                ['diadasemana' => 'Segunda-Feira'],
+                ['diadasemana' => 'Terça-Feira'],
+                ['diadasemana' => 'Quarta-Feira'],
+                ['diadasemana' => 'Quinta-Feira'],
+                ['diadasemana' => 'Sexta-Feira'],
+                ['diadasemana' => 'Sábado'],
+                ['diadasemana' => 'Domingo']
+            )
         );
     }
 }
